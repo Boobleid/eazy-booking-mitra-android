@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/priceCV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        app:cardCornerRadius="@dimen/space_8"
+        app:cardElevation="@dimen/space_2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorNavy">
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_corner_outline_grey_r8"
+                android:checkedButton="@+id/offer"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0">
+
+                <RadioButton
+                    android:id="@+id/radio1RB"
+                    android:layout_width="@dimen/space_100"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/toggle_widget_background"
+                    android:button="@null"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:text="@string/rental_price"
+                    android:textColor="@color/color_tab_selector"
+                    tools:checked="true" />
+
+                <RadioButton
+                    android:id="@+id/radio2RB"
+                    android:layout_width="@dimen/space_100"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/toggle_widget_background"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="@string/purchase_price"
+                    android:textColor="@color/color_tab_selector" />
+            </RadioGroup>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/priceBuyTIL"
+                style="@style/CustomTextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+                app:layout_constraintVertical_bias="0.0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/priceBuyET"
+                    style="@style/CustomWhiteEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/space_16"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:hint="@string/rp_0"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:paddingStart="@dimen/space_16"
+                    android:paddingEnd="@dimen/space_100" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/pricePerDayTIL"
+                style="@style/CustomTextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+                app:layout_constraintVertical_bias="0.0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/pricePerDayET"
+                    style="@style/CustomWhiteEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/space_16"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:hint="@string/rp_0"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:paddingStart="@dimen/space_16"
+                    android:paddingEnd="@dimen/space_100" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/pricePerDayTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="@string/night_"
+                android:textColor="@color/colorTextHint"
+                android:textSize="@dimen/size_16"
+                app:layout_constraintBottom_toBottomOf="@+id/pricePerDayTIL"
+                app:layout_constraintEnd_toEndOf="@+id/pricePerDayTIL"
+                app:layout_constraintTop_toTopOf="@+id/pricePerDayTIL" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/pricePerMonthTIL"
+                style="@style/CustomTextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pricePerDayTIL">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/pricePerMonthET"
+                    style="@style/CustomWhiteEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/space_16"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:hint="@string/rp_0"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:paddingStart="@dimen/space_16"
+                    android:paddingEnd="@dimen/space_100" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/pricePerMonthTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="@string/month_"
+                android:textColor="@color/colorTextHint"
+                android:textSize="@dimen/size_16"
+                app:layout_constraintBottom_toBottomOf="@+id/pricePerMonthTIL"
+                app:layout_constraintEnd_toEndOf="@+id/pricePerMonthTIL"
+                app:layout_constraintTop_toTopOf="@+id/pricePerMonthTIL" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/pricePerYearTIL"
+                style="@style/CustomTextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pricePerMonthTIL">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/pricePerYearET"
+                    style="@style/CustomWhiteEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/space_16"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:hint="@string/rp_0"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:paddingStart="@dimen/space_16"
+                    android:paddingEnd="@dimen/space_100" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/pricePerYearTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="@string/year_"
+                android:textColor="@color/colorTextHint"
+                android:textSize="@dimen/size_16"
+                app:layout_constraintBottom_toBottomOf="@+id/pricePerYearTIL"
+                app:layout_constraintEnd_toEndOf="@+id/pricePerYearTIL"
+                app:layout_constraintTop_toTopOf="@+id/pricePerYearTIL" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/roomDescTV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/room_description"
+        android:textSize="@dimen/size_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/priceCV" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/roomDescTIL"
+        style="@style/CustomTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="@+id/roomDescTV"
+        app:layout_constraintStart_toStartOf="@+id/roomDescTV"
+        app:layout_constraintTop_toBottomOf="@+id/roomDescTV">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/roomDescET"
+            style="@style/CustomWhiteEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/space_16"
+            android:gravity="top"
+            android:hint="@string/input_product_description"
+            android:inputType="textMultiLine"
+            android:minLines="5" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/roomImageTV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/add_room_image"
+        android:textSize="@dimen/size_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/roomDescTIL" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView1"
+        android:layout_width="@dimen/space_100"
+        android:layout_height="@dimen/space_100"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:cardBackgroundColor="@color/colorNavyDark"
+        app:cardCornerRadius="@dimen/space_8"
+        app:cardElevation="@dimen/space_0"
+        app:layout_constraintEnd_toStartOf="@+id/cardView2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/roomImageTV"
+        app:layout_constraintTop_toBottomOf="@+id/roomImageTV">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawablePadding="@dimen/space_3"
+            android:text="@string/figure_1"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/size_16"
+            app:drawableTint="@color/colorGreenLight"
+            app:drawableTopCompat="@drawable/ic_add"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/roomDescTIL" />
+
+        <ImageView
+            android:id="@+id/roomImage1IV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/todo"
+            android:src="@android:color/transparent" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="@dimen/space_100"
+        android:layout_height="@dimen/space_100"
+        app:cardBackgroundColor="@color/colorNavyDark"
+        app:cardCornerRadius="@dimen/space_8"
+        app:cardElevation="@dimen/space_0"
+        app:layout_constraintEnd_toEndOf="@+id/roomImageTV"
+        app:layout_constraintStart_toStartOf="@+id/roomImageTV"
+        app:layout_constraintTop_toTopOf="@+id/cardView1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawablePadding="@dimen/space_3"
+            android:text="@string/figure_2"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/size_16"
+            app:drawableTint="@color/colorGreenLight"
+            app:drawableTopCompat="@drawable/ic_add"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/roomDescTIL" />
+
+        <ImageView
+            android:id="@+id/roomImage2IV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/todo"
+            android:src="@android:color/transparent" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
+        android:layout_width="@dimen/space_100"
+        android:layout_height="@dimen/space_100"
+        android:layout_marginTop="16dp"
+        app:cardBackgroundColor="@color/colorNavyDark"
+        app:cardCornerRadius="@dimen/space_8"
+        app:cardElevation="@dimen/space_0"
+        app:layout_constraintEnd_toEndOf="@+id/roomImageTV"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/cardView2"
+        app:layout_constraintTop_toBottomOf="@+id/roomImageTV">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawablePadding="@dimen/space_3"
+            android:text="@string/figure_3"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/size_16"
+            app:drawableTint="@color/colorGreenLight"
+            app:drawableTopCompat="@drawable/ic_add"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/roomDescTIL" />
+
+        <ImageView
+            android:id="@+id/roomImage3IV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/todo"
+            android:src="@android:color/transparent" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView4"
+        android:layout_width="@dimen/space_100"
+        android:layout_height="@dimen/space_100"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        app:cardBackgroundColor="@color/colorNavyDark"
+        app:cardCornerRadius="@dimen/space_8"
+        app:cardElevation="@dimen/space_0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/cardView2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/roomImageTV"
+        app:layout_constraintTop_toBottomOf="@+id/cardView1"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawablePadding="@dimen/space_3"
+            android:text="@string/figure_4"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/size_16"
+            app:drawableTint="@color/colorGreenLight"
+            app:drawableTopCompat="@drawable/ic_add"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/roomDescTIL" />
+
+        <ImageView
+            android:id="@+id/roomImage4IV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/todo"
+            android:src="@android:color/transparent" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView5"
+        android:layout_width="@dimen/space_100"
+        android:layout_height="@dimen/space_100"
+        android:layout_marginTop="16dp"
+        app:cardBackgroundColor="@color/colorNavyDark"
+        app:cardCornerRadius="@dimen/space_8"
+        app:cardElevation="@dimen/space_0"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView4"
+        app:layout_constraintEnd_toEndOf="@+id/roomImageTV"
+        app:layout_constraintStart_toStartOf="@+id/roomImageTV"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawablePadding="@dimen/space_3"
+            android:text="@string/figure_5"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/size_16"
+            app:drawableTint="@color/colorGreenLight"
+            app:drawableTopCompat="@drawable/ic_add"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/roomDescTIL" />
+
+        <ImageView
+            android:id="@+id/roomImage5IV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/todo"
+            android:src="@android:color/transparent" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView6"
+        android:layout_width="@dimen/space_100"
+        android:layout_height="@dimen/space_100"
+        android:layout_marginTop="16dp"
+        app:cardBackgroundColor="@color/colorNavyDark"
+        app:cardCornerRadius="@dimen/space_8"
+        app:cardElevation="@dimen/space_0"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView5"
+        app:layout_constraintEnd_toEndOf="@+id/roomImageTV"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/cardView2"
+        app:layout_constraintTop_toBottomOf="@+id/cardView3"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawablePadding="@dimen/space_3"
+            android:text="@string/figure_6"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/size_16"
+            app:drawableTint="@color/colorGreenLight"
+            app:drawableTopCompat="@drawable/ic_add"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/roomDescTIL" />
+
+        <ImageView
+            android:id="@+id/roomImage6IV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/todo"
+            android:src="@android:color/transparent" />
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

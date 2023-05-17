@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorNavy"
+    tools:context=".ui.login.LoginActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:padding="@dimen/space_32">
+
+        <ImageView
+            android:id="@+id/iconIV"
+            android:layout_width="@dimen/space_60"
+            android:layout_height="@dimen/space_60"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/reson_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/welcomeTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:includeFontPadding="false"
+            android:text="@string/mitra"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_24"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iconIV" />
+
+        <TextView
+            android:id="@+id/hitWelcomeTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_medium"
+            android:includeFontPadding="false"
+            android:text="@string/group_name"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_20"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/welcomeTV" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailTIL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:hintEnabled="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hitWelcomeTV">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_blue_dark_low_rounded"
+                android:drawableStart="@drawable/ic_username"
+                android:drawablePadding="@dimen/dimen_8"
+                android:elevation="@dimen/dimen_2"
+                android:fontFamily="@font/montserrat_regular"
+                android:hint="@string/username"
+                android:includeFontPadding="false"
+                android:inputType="textEmailAddress"
+                android:paddingStart="@dimen/dimen_8"
+                android:paddingTop="@dimen/dimen_8"
+                android:paddingEnd="@dimen/dimen_8"
+                android:paddingBottom="@dimen/dimen_8"
+                android:text="@string/dummy_email"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhiteDark"
+                android:textCursorDrawable="@drawable/cursor_with_padding" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordTIL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:hintEnabled="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/emailTIL"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/colorWhite">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_blue_dark_low_rounded"
+                android:drawableStart="@drawable/ic_password"
+                android:drawablePadding="@dimen/dimen_8"
+                android:fontFamily="@font/montserrat_regular"
+                android:gravity="center_vertical"
+                android:hint="@string/password"
+                android:includeFontPadding="false"
+                android:inputType="textPassword"
+                android:paddingStart="@dimen/dimen_8"
+                android:paddingTop="@dimen/dimen_8"
+                android:paddingEnd="@dimen/dimen_8"
+                android:paddingBottom="@dimen/dimen_8"
+                android:text="@string/dummy_password"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhiteDark"
+                android:textCursorDrawable="@drawable/cursor_with_padding" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/forgotPasswordTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_24"
+            android:drawablePadding="@dimen/dimen_8"
+            android:fontFamily="@font/montserrat_medium"
+            android:includeFontPadding="false"
+            android:text="@string/forget_pass"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_14"
+            app:layout_constraintEnd_toEndOf="@+id/passwordTIL"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/passwordTIL"
+            app:layout_constraintTop_toBottomOf="@+id/loginMB" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/loginMB"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/space_60"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/colorAccent"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/login"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordTIL"
+            app:rippleColor="@color/colorWhite"
+            app:shapeAppearanceOverlay="@style/buttonRounded" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

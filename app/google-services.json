@@ -1,0 +1,84 @@
+{
+  "project_info": {
+    "project_number": "207404949482",
+    "project_id": "booblereservasi",
+    "storage_bucket": "booblereservasi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:207404949482:android:47778f08359052ad5b1c93",
+        "android_client_info": {
+          "package_name": "com.booble.reservasi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "207404949482-jhsc8l589b5dcpji1i8h21tfmnr1ouqb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.booble.reservasi",
+            "certificate_hash": "59201d3af3fbb92b996962cd2363b59ee20d2723"
+          }
+        },
+        {
+          "client_id": "207404949482-f1epdba8dm3vrs59b83eo673jn8n1k1j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVPpxGa2CE6pYCJFtJDTfrj0R6xz-bDOE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "207404949482-f1epdba8dm3vrs59b83eo673jn8n1k1j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:207404949482:android:e6af34511f09b64b5b1c93",
+        "android_client_info": {
+          "package_name": "com.booble.reservasi.mitra"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "207404949482-l3s74lv067dvtrqo7uoa7ksn13j67kem.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.booble.reservasi.mitra",
+            "certificate_hash": "59201d3af3fbb92b996962cd2363b59ee20d2723"
+          }
+        },
+        {
+          "client_id": "207404949482-f1epdba8dm3vrs59b83eo673jn8n1k1j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVPpxGa2CE6pYCJFtJDTfrj0R6xz-bDOE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "207404949482-f1epdba8dm3vrs59b83eo673jn8n1k1j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

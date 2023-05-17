@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/space_6"
+    app:cardCornerRadius="@dimen/space_3">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorNavyDark">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView3"
+            android:layout_width="@dimen/space_100"
+            android:layout_height="@dimen/space_120"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:cardCornerRadius="@dimen/space_8"
+            app:cardElevation="@dimen/space_0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/serviceImageIV"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/todo"
+                android:scaleType="centerCrop"
+                android:src="@drawable/placeholder" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/nameTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_6"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:text="@string/dummy_room"
+            android:textSize="@dimen/size_18"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/displaySwitch"
+            app:layout_constraintStart_toEndOf="@+id/cardView3"
+            app:layout_constraintTop_toBottomOf="@+id/iconSwitch" />
+
+        <TextView
+            android:id="@+id/showTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:text="@string/tampilkan"
+            android:textSize="@dimen/size_12"
+            app:layout_constraintEnd_toStartOf="@+id/iconSwitch"
+            app:layout_constraintTop_toTopOf="@+id/iconSwitch"
+            app:layout_constraintBottom_toBottomOf="@+id/iconSwitch"/>
+
+        <TextView
+            android:id="@+id/priceTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:text="@string/dummy_rp"
+            app:layout_constraintEnd_toStartOf="@+id/displaySwitch"
+            app:layout_constraintStart_toStartOf="@+id/nameTV"
+            app:layout_constraintTop_toBottomOf="@+id/nameTV" />
+
+        <TextView
+            android:id="@+id/detailTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_corner_outline_white_r50"
+            android:gravity="center"
+            android:padding="@dimen/space_8"
+            android:paddingStart="@dimen/space_32"
+            android:paddingEnd="@dimen/space_32"
+            android:text="@string/detail"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/size_12"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/cardView3"
+            app:layout_constraintStart_toStartOf="@+id/priceTV"
+            app:layout_constraintTop_toBottomOf="@+id/priceTV"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/changeTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_corner_outline_white_r50"
+            android:gravity="center"
+            android:padding="@dimen/space_8"
+            android:paddingStart="@dimen/space_32"
+            android:paddingEnd="@dimen/space_32"
+            android:text="@string/change"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/size_12"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/cardView3"
+            app:layout_constraintStart_toEndOf="@+id/detailTV"
+            app:layout_constraintTop_toBottomOf="@+id/priceTV"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <com.polyak.iconswitch.IconSwitch
+            android:id="@+id/iconSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="@dimen/space_8"
+            app:isw_icon_left="@drawable/ic_visibility_off"
+            app:isw_icon_right="@drawable/ic_visibility"
+            app:isw_thumb_color_left="@color/colorDisable"
+            app:isw_inactive_tint_icon_left="@color/colorDisable"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.60" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

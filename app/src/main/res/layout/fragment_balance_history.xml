@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/parentSearchCL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/ivFilter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/statusTV">
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/searchProductSV"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/space_48"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_navy_dark_r6"
+                android:focusable="false"
+                android:theme="@style/AppSearchView"
+                android:visibility="gone"
+                app:iconifiedByDefault="false"
+                app:layout_constraintEnd_toStartOf="@+id/sortByIV"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:queryBackground="@android:color/transparent"
+                app:queryHint="Cari tamu"
+                app:searchIcon="@drawable/ic_search" />
+
+            <ImageView
+                android:id="@+id/sortByIV"
+                android:layout_width="@dimen/space_48"
+                android:layout_height="@dimen/space_48"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/bg_navy_dark_r6"
+                android:contentDescription="@string/todo"
+                android:padding="@dimen/space_12"
+                android:src="@drawable/ic_filter"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/searchProductSV"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/searchProductSV" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listDataRV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:clipToPadding="false"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/searchProductSV"
+                app:layout_constraintVertical_bias="0.0"
+                tools:itemCount="3"
+                tools:listitem="@layout/row_item_balance_history" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <TextView
+        android:id="@+id/noDataTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:drawablePadding="@dimen/space_6"
+        android:gravity="center|center_vertical"
+        android:text="@string/no_data"
+        android:textColor="@color/colorNavyDark"
+        android:textSize="@dimen/size_18"
+        app:drawableStartCompat="@drawable/ic_baseline_info_24" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

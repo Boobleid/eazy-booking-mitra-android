@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.withdraw.WithdrawFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="@dimen/space_0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/hintBalanceTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:includeFontPadding="false"
+                android:padding="@dimen/space_24"
+                android:text="@string/your_balance"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toStartOf="@+id/balanceTV"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/balanceTV"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:background="@color/colorWhite"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:paddingStart="@dimen/space_24"
+                android:paddingEnd="@dimen/space_24"
+                android:text="@string/rp_0"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_18"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/hintBalanceTV"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/hintBalanceTV" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/space_90"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/nominalTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                android:text="@string/nominal_wd"
+                android:textSize="@dimen/size_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nominalET"
+                style="@style/CustomWhiteEditTextUnderLine"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/colorWhite"
+                android:drawableStart="@drawable/ic_rupiah_currency"
+                android:drawablePadding="@dimen/space_16"
+                android:gravity="center_vertical"
+                android:hint="@string/nominal_wd"
+                android:inputType="numberDecimal"
+                android:maxLength="11"
+                app:layout_constraintEnd_toEndOf="@+id/nominalTV"
+                app:layout_constraintStart_toStartOf="@+id/nominalTV"
+                app:layout_constraintTop_toBottomOf="@+id/nominalTV" />
+
+            <TextView
+                android:id="@+id/bankTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
+                android:text="@string/bank_name"
+                android:textSize="@dimen/size_16"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nominalET" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/bankNameTIL"
+                style="@style/CustomTextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:endIconMode="custom"
+                app:layout_constraintEnd_toEndOf="@+id/nominalTV"
+                app:layout_constraintStart_toStartOf="@+id/nominalTV"
+                app:layout_constraintTop_toBottomOf="@+id/bankTV">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/bankNameET"
+                    style="@style/CustomWhiteEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/space_16"
+                    android:gravity="center_vertical"
+                    android:hint="@string/bank_name"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/bankNumberTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/bank_number"
+                android:textSize="@dimen/size_16"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bankNameTIL" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/bankNumberTIL"
+                style="@style/CustomTextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:endIconMode="custom"
+                app:layout_constraintEnd_toEndOf="@+id/nominalTV"
+                app:layout_constraintStart_toStartOf="@+id/nominalTV"
+                app:layout_constraintTop_toBottomOf="@+id/bankNumberTV">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/bankNumberACTV"
+                    style="@style/CustomWhiteEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/space_16"
+                    android:gravity="center_vertical"
+                    android:hint="@string/bank_number"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/ownerNameTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/owner_name"
+                android:textSize="@dimen/size_16"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bankNumberTIL" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ownerNameTIL"
+                style="@style/CustomTextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="160dp"
+                app:endIconMode="custom"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/nominalTV"
+                app:layout_constraintStart_toStartOf="@+id/nominalTV"
+                app:layout_constraintTop_toBottomOf="@+id/ownerNameTV"
+                app:layout_constraintVertical_bias="0.0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ownerNameACTV"
+                    style="@style/CustomWhiteEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/space_16"
+                    android:gravity="center_vertical"
+                    android:hint="@string/owner_name"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/buttonRL"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_90"
+        android:layout_gravity="bottom"
+        android:background="@color/colorNavy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_1"
+            android:layout_alignParentTop="true"
+            android:background="@color/colorNavyDark" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/doMB"
+            style="@style/OutlinedButton.RounderBorder.IconNoPadding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/space_32"
+            android:layout_marginEnd="@dimen/space_8"
+            android:backgroundTint="@color/colorAccent"
+            android:fontFamily="@font/montserrat_bold"
+            android:letterSpacing="0"
+            android:padding="@dimen/dimen_16"
+            android:text="@string/do_withdraw"
+            android:textAllCaps="false"
+            android:textSize="@dimen/text_16"
+            app:iconGravity="textStart"
+            app:iconPadding="@dimen/space_8"
+            app:iconTint="@color/colorWhite" />
+    </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

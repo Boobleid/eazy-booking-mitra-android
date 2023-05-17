@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <me.dm7.barcodescanner.zxing.ZXingScannerView
+        android:id="@+id/scanner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@android:color/transparent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingEnd="8dp">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:contentDescription="@string/app_name"
+            android:padding="4dp"
+            android:src="@drawable/ic_round_arrow_back_24"
+            app:tint="@color/colorWhite" />
+
+        <TextView
+            android:id="@+id/tvTitleBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_8"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:fontFamily="@font/montserrat_medium"
+            android:includeFontPadding="false"
+            android:singleLine="true"
+            android:text="@string/mitra_millenial_property"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp"
+            tools:text="@string/app_name" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/appBar"
+        android:layout_margin="@dimen/dimen_16"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="@string/arahkan_camera_anda_ke_qr_code_atau_barcode"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_16" />
+
+    <ImageView
+        android:id="@+id/iv_flash"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/tvInfo"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/dimen_16"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_flash_on" />
+
+    <TextView
+        android:id="@+id/textScanning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/textInput"
+        android:layout_marginBottom="@dimen/dimen_8"
+        android:fontFamily="@font/montserrat_bold"
+        android:includeFontPadding="false"
+        android:text="@string/scanning"
+        android:textAlignment="center"
+        android:textColor="@color/colorBlackGreyLow"
+        android:textSize="@dimen/text_16" />
+
+    <TextView
+        android:id="@+id/textInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/cvInput"
+        android:layout_marginBottom="@dimen/dimen_16"
+        android:fontFamily="@font/montserrat_medium"
+        android:includeFontPadding="false"
+        android:text="@string/atau_input_manual_kode_booking"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_14" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="40dp"
+        android:background="@color/colorWhite"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="2dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/idBookingET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@id/doneMB"
+                android:autofillHints="name"
+                android:background="@color/colorWhite"
+                android:hint="@string/input_booking_code"
+                android:inputType="text"
+                android:paddingStart="@dimen/dimen_16"
+                android:paddingTop="@dimen/dimen_8"
+                android:paddingEnd="@dimen/dimen_16"
+                android:paddingBottom="@dimen/dimen_8"
+                android:textColor="@color/colorNavyDark"
+                android:textColorHint="@color/colorTextGrey"
+                android:textSize="@dimen/size_14" />
+
+            <TextView
+                android:id="@+id/doneMB"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@color/colorAccent"
+                android:fontFamily="@font/montserrat_bold"
+                android:gravity="center"
+                android:padding="@dimen/dimen_12"
+                android:text="@string/ok"
+                android:textColor="@color/colorWhite" />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

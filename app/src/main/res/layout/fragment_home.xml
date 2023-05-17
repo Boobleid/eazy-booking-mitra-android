@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeRefresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/space_0">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/startDateMB"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="@dimen/dimen_16"
+            android:layout_weight="1"
+            android:fontFamily="@font/montserrat_regular"
+            android:includeFontPadding="false"
+            android:letterSpacing="0"
+            android:padding="@dimen/dimen_10"
+            android:text="@string/booking_date"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhiteDark"
+            android:textSize="14sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="@+id/icon_arrow"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:rippleColor="@color/colorAccent"
+            app:shapeAppearanceOverlay="@style/buttonRounded"
+            app:strokeColor="@color/colorAccent"
+            app:strokeWidth="2dp" />
+
+        <ImageView
+            android:id="@+id/icon_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_arrow_right_date"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/startDateMB"
+            app:layout_constraintEnd_toStartOf="@+id/endDateMB"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/startDateMB"
+            app:layout_constraintTop_toTopOf="@+id/startDateMB" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/endDateMB"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_16"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/montserrat_regular"
+            android:includeFontPadding="false"
+            android:letterSpacing="0"
+            android:padding="@dimen/dimen_10"
+            android:text="@string/tanggal_akhir"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhiteDark"
+            android:textSize="14sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toEndOf="@+id/icon_arrow"
+            app:layout_constraintTop_toTopOf="@+id/startDateMB"
+            app:rippleColor="@color/colorAccent"
+            app:shapeAppearanceOverlay="@style/buttonRounded"
+            app:strokeColor="@color/colorWhite"
+            app:strokeWidth="2dp" />
+
+        <ImageView
+            android:id="@+id/ivFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_filter"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/parentSearchCL"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/parentSearchCL" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/parentSearchCL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/ivFilter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/statusTV">
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/searchProductSV"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_48"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/bg_navy_dark_r6"
+                android:focusable="false"
+                android:theme="@style/AppSearchView"
+                app:iconifiedByDefault="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:queryBackground="@android:color/transparent"
+                app:searchIcon="@drawable/ic_search" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/statusTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/your_service"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/size_16"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_2"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:background="@color/colorNavyDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/parentSearchCL" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listDataRV"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:overScrollMode="never"
+            android:paddingStart="@dimen/space_16"
+            android:paddingTop="@dimen/space_10"
+            android:paddingEnd="@dimen/space_16"
+            android:paddingBottom="@dimen/space_90"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/buttonRL"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider"
+            tools:listitem="@layout/row_item_your_service" />
+
+        <TextView
+            android:id="@+id/noDataTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/space_6"
+            android:gravity="center|center_vertical"
+            android:text="@string/no_data"
+            android:textColor="@color/colorTextGrey"
+            android:textSize="@dimen/size_18"
+            app:drawableStartCompat="@drawable/ic_baseline_info_24"
+            app:layout_constraintBottom_toBottomOf="@+id/listDataRV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/statusTV" />
+
+
+        <RelativeLayout
+            android:id="@+id/buttonRL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/colorNavy"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_1"
+                android:layout_alignParentTop="true"
+                android:background="@color/colorNavyDark" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/addMB"
+                style="@style/OutlinedButton.RounderBorder.IconNoPadding"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/space_24"
+                android:layout_marginTop="@dimen/space_16"
+                android:layout_marginEnd="@dimen/space_24"
+                android:layout_marginBottom="@dimen/space_16"
+                android:backgroundTint="@color/colorAccent"
+                android:fontFamily="@font/montserrat_bold"
+                android:letterSpacing="0"
+                android:padding="@dimen/dimen_16"
+                android:text="@string/add_service"
+                android:textAllCaps="false"
+                android:textSize="@dimen/text_16"
+                app:icon="@drawable/ic_add"
+                app:iconGravity="textStart"
+                app:iconPadding="@dimen/space_8"
+                app:iconTint="@color/colorWhite" />
+        </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

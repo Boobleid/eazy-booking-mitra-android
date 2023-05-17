@@ -1,0 +1,197 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.MitraMillennialProperty" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorNavyDark</item>
+        <item name="colorPrimaryVariant">@color/colorNavyDark</item>
+        <item name="colorOnPrimary">@color/colorNavyDark</item>
+        <item name="android:textColorHint">@color/colorTextGreyVeryLow</item>
+
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+
+        <!-- font -->
+        <item name="android:letterSpacing">0</item>
+        <item name="android:buttonStyle">@font/montserrat_regular</item>
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="fontFamily">@font/montserrat_regular</item> <!-- target android sdk versions < 26 and > 14 if theme other than AppCompat -->
+
+        <item name="android:textColorPrimary">@color/colorWhite</item>
+        <item name="android:textColor">@color/colorWhite</item>
+
+        <item name="android:windowBackground">@color/colorNavy</item>
+
+        <item name="android:homeAsUpIndicator">@drawable/ic_baseline_arrow_back_24</item>
+    </style>
+
+    <!-- Animation -->
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_up</item>
+        <item name="android:windowExitAnimation">@anim/slide_down</item>
+    </style>
+
+    <style name="Theme.MitraMillennialProperty.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+    <style name="CustomDialogTheme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="buttonRounded">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="EditTextBlackLine">
+        <item name="colorAccent">@color/colorWhiteDark</item>
+    </style>
+
+    <style name="MyDatePickerDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <!-- this is new -->
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:datePickerStyle">@style/MyDatePickerStyle</item>
+        <item name="android:colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="MyDatePickerStyle" parent="@android:style/Widget.Material.Light.DatePicker">
+        <item name="android:headerBackground">@color/colorBlueDarkLow</item>
+        <item name="android:calendarTextColor">@color/colorBlueDarkLow</item>
+        <item name="android:dayOfWeekBackground">@color/colorAccent</item>
+        <item name="android:yearListSelectorColor">@color/colorAccent</item>
+    </style>
+
+    <style name="Theme.MitraMillennialProperty.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.MitraMillennialProperty.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!--Theme from rival-->
+
+    <style name="Toolbar.Custom" parent="Base.ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/colorNavy</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="colorControlNormal">@color/colorWhite</item>
+        <item name="android:contentInsetLeft">0dp</item>
+        <item name="android:contentInsetStart">0dp</item>
+        <item name="contentInsetLeft">0dp</item>
+        <item name="contentInsetStart">0dp</item>
+        <item name="contentInsetStartWithNavigation">0dp</item>
+    </style>
+
+    <style name="CustomTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxBackgroundColor">@color/colorNavyDark</item>
+        <item name="boxStrokeColor">@color/color_input_layout_selector</item>
+        <item name="boxStrokeErrorColor">@color/colorRed</item>
+        <item name="errorTextAppearance">@style/error_appearance</item>
+        <item name="hintTextAppearance">@style/error_appearance</item>
+        <item name="hintEnabled">false</item>
+    </style>
+
+    <style name="CustomTextInputLayoutOutline" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxBackgroundColor">@color/colorNavyDark</item>
+        <item name="boxStrokeColor">@color/color_input_layout_selector</item>
+        <item name="boxStrokeErrorColor">@color/colorRed</item>
+        <item name="errorTextAppearance">@style/error_appearance</item>
+        <item name="hintTextAppearance">@style/error_appearance</item>
+        <item name="hintEnabled">false</item>
+    </style>
+
+    <style name="CustomWhiteEditText">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textCursorDrawable">@drawable/cursor_with_padding</item>
+        <item name="android:textColorHint">@color/colorTextHint</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">@dimen/space_16</item>
+        <item name="android:paddingTop">@dimen/space_16</item>
+        <item name="android:paddingBottom">@dimen/space_16</item>
+    </style>
+
+
+    <style name="CustomWhiteEditTextUnderLine">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textCursorDrawable">@drawable/cursor_with_padding</item>
+        <item name="android:textColorHint">@color/colorTextHint</item>
+        <item name="android:paddingStart">3dp</item>
+        <item name="strokeColor">@color/color_input_layout_selector</item>
+        <item name="android:strokeColor">@color/color_input_layout_selector</item>
+        <item name="android:paddingEnd">@dimen/space_16</item>
+        <item name="android:paddingTop">@dimen/space_16</item>
+        <item name="android:paddingBottom">@dimen/space_16</item>
+    </style>
+
+    <style name="CustomExposedDropdownMenu" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxBackgroundColor">@color/colorNavyDark</item>
+        <item name="boxStrokeColor">@color/color_input_layout_selector</item>
+        <item name="boxStrokeErrorColor">@color/colorRed</item>
+        <item name="errorTextAppearance">@style/error_appearance</item>
+        <item name="hintTextAppearance">@style/error_appearance</item>
+        <item name="hintEnabled">false</item>
+    </style>
+
+    <style name="error_appearance" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Button.Rounded.IconNoPadding.Shadow" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="iconPadding">0dp</item>
+        <item name="rippleColor">@color/colorWhite</item>
+        <item name="backgroundTint">@color/colorAccent</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+
+    <style name="OutlinedButton.RounderBorder.IconNoPadding" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="iconPadding">0dp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="rippleColor">@color/colorAccent</item>
+        <item name="strokeColor">@color/colorNavyDark</item>
+        <item name="android:strokeColor">@color/colorWhite</item>
+        <item name="backgroundTint">@color/colorPrimary</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+
+    <style name="AlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="background">@color/colorNavy</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="ACTVDropdownDisable">
+        <item name="android:clickable">false</item>
+        <item name="android:longClickable">false</item>
+        <item name="android:cursorVisible">false</item>
+        <item name="android:focusable">false</item>
+    </style>
+
+    <style name="AppSearchView" parent="Widget.AppCompat.SearchView">
+        <item name="android:textSize">@dimen/size_14</item>
+    </style>
+</resources>

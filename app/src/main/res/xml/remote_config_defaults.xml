@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<defaultsMap>
+    <entry>
+        <key>url_api</key>
+        <value>http://13.215.109.224:5080/</value>
+    </entry>
+</defaultsMap>
