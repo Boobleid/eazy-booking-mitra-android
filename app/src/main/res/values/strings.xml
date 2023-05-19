@@ -272,7 +272,9 @@
     <string name="choose_service_before">Pilih lokasi terlebih dahulu!</string>
     <string name="bank_name">Nama Bank</string>
     <string name="max_nominal">Nominal penarikan tidak boleh lebih besar dari saldo!</string>
+    <string name="transaction_date">Tanggal Transaksi</string>
     <string name="transaction_add">Transaksi %1$s</string>
+    <string name="booking_date_">Booking %1$s</string>
     <string name="invoice_">#%1$s</string>
     <string name="day_month_year_">%1$s /hari\n%2$s /bulan\n%3$s /tahun</string>
     <string name="room_available_number">Nomor-nomor unit tersedia</string>
@@ -281,6 +283,7 @@
     <string name="service_name2">Nama Service</string>
     <string name="member_service">Member Service</string>
     <string name="balance_history">Riwayat Saldo Mitra</string>
+    <string name="session_text_">Sesi %1$s</string>
 
     <string name="call_center">Pusat Bantuan</string>
     <string name="popular_topic">Topik Populer</string>
@@ -298,4 +301,6 @@
     <string name="pick_location">Pick Lokasi</string>
     <string name="tampilkan">Tampilkan</string>
     <string name="quota">Kuota</string>
+    <string name="total_tagihan">Total Tagihan</string>
+    <string name="info_sesi">Info Sesi</string>
 </resources>

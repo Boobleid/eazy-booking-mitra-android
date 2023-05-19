@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import com.booble.reservasi.mitra.MyApp.Companion.BALANCE
 import com.booble.reservasi.mitra.MyApp.Companion.TYPE
 import com.booble.reservasi.mitra.R
-import com.booble.reservasi.mitra.back_up.ui.scanner.ScannerActivity
+import com.booble.reservasi.mitra.ui.scanner.ScannerActivity
 import com.booble.reservasi.mitra.base.BaseActivity
 import com.booble.reservasi.mitra.data.model.api.ErrorResponse
 import com.booble.reservasi.mitra.data.model.api.user_profile.UserProfileResponse

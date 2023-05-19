@@ -13,6 +13,8 @@ data class CheckOutHistoryData(
     var bayarMillennial: String? = null,
     @SerializedName("bayar_mitra")
     var bayarMitra: String? = null,
+    @SerializedName("biaya_admin")
+    var biayaAdmin: Int? = null,
     @SerializedName("email")
     var email: String? = null,
     @SerializedName("id")
@@ -31,10 +33,26 @@ data class CheckOutHistoryData(
     var telp: String? = null,
     @SerializedName("tgl")
     var tgl: String? = null,
+    @SerializedName("tgl_booking")
+    var tglBooking: String? = null,
     @SerializedName("tgl_checkin")
     var tglCheckin: String? = null,
     @SerializedName("tgl_checkout")
     var tglCheckout: String? = null,
+    @SerializedName("sesi")
+    var sesi: List<SessionBooking>? = null,
     @SerializedName("kode_member")
     var memberCode: String? = null
+) : Parcelable
+
+@Parcelize
+data class SessionBooking(
+    @SerializedName("sesi_ke")
+    var sesiKe: String? = null,
+    @SerializedName("jam")
+    var jam: String? = null,
+    @SerializedName("harga")
+    var harga: Int? = null,
+    @SerializedName("disc")
+    var disc: Int? = null,
 ) : Parcelable

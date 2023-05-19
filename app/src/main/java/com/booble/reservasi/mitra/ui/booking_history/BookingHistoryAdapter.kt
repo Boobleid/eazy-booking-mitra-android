@@ -24,14 +24,16 @@ class BookingHistoryAdapter(
     inner class ViewHolder(private val binding: RowItemCheckOutHistoryBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bindItem(item: CheckOutHistoryData, position: Int) {
             binding.apply {
-                val date1 = root.context.getString(R.string.transaction_add, item.tglCheckin)
                 val invoice = root.context.getString(R.string.invoice_, item.invoice)
+                val dateTransaction = root.context.getString(R.string.transaction_add, item.tgl)
+                val dateBooking = root.context.getString(R.string.booking_date_, item.tglBooking)
                 nameTV.text = item.nama
                 invoiceTV.text = invoice
                 roomNameTV.text = item.nmProduk
                 facilityNameTV.text = item.nmProperty
                 statusTV.text = item.status
-                dateStatusTV.text = date1
+                dateTransactionTV.text = dateTransaction
+                dateBookingTV.text = dateBooking
                 priceTV.text = toRupiahNotRp(isStringNullZero(item.bayar.toString()))
                 root.setOnClickListener { listener(item) }
                 if (position % 2 == 0) root.setBackgroundColor(ContextCompat.getColor(root.context, R.color.colorNavyDark))

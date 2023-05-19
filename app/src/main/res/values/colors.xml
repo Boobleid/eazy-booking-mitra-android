@@ -39,6 +39,7 @@
     <color name="colorGradient2">#2B3247</color>
     <color name="colorBlueDarkLow">#485A6A</color>
     <color name="colorGreenLow">#F2FF4D</color>
+    <color name="colorOrange">#FE8C00</color>
     <color name="colorOrangeLight">#F83600</color>
     <color name="colorBlackTransparent">#80000000</color>
     <color name="colorSilver">#E5E7EB</color>

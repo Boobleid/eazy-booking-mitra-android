@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,8 +7,10 @@
     tools:context=".ui.booking_history.detail.BookingHistoryDetailActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -24,7 +26,9 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/space_0"
+        app:layout_constraintTop_toBottomOf="@id/appBar"
+        app:layout_constraintBottom_toTopOf="@id/constraintLayout"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -55,7 +59,7 @@
                 app:layout_constraintTop_toTopOf="@+id/hintInvoiceTV" />
 
             <LinearLayout
-                android:id="@+id/parentTopCL"
+                android:id="@+id/bookingLL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -91,7 +95,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="@dimen/dimen_8"
                             android:fontFamily="@font/montserrat_medium"
-                            android:text="@string/check_in"
+                            android:text="@string/transaction_date"
                             android:textColor="@color/colorWhite"
                             android:textSize="@dimen/text_14" />
 
@@ -105,7 +109,7 @@
                             android:textSize="@dimen/text_14" />
 
                         <TextView
-                            android:id="@+id/checkInTV"
+                            android:id="@+id/dateTransactionTV"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -125,7 +129,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="@dimen/dimen_8"
                             android:fontFamily="@font/montserrat_medium"
-                            android:text="@string/check_out"
+                            android:text="@string/booking_date"
                             android:textColor="@color/colorWhite"
                             android:textSize="@dimen/text_14" />
 
@@ -139,7 +143,7 @@
                             android:textSize="@dimen/text_14" />
 
                         <TextView
-                            android:id="@+id/checkOutTV"
+                            android:id="@+id/bookingTV"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -148,41 +152,44 @@
                             android:textColor="@color/colorWhite"
                             android:textSize="@dimen/text_14" />
                     </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="@dimen/dimen_8"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:text="@string/status"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="@dimen/text_14" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="@dimen/dimen_8"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:text="@string/semicolon"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="@dimen/text_14" />
-
-                        <TextView
-                            android:id="@+id/statusTV"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:text="@string/dash"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="@dimen/text_14" />
-                    </TableRow>
-
                 </TableLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sessionLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@color/colorNavyDark"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bookingLL">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:includeFontPadding="false"
+                    android:text="@string/info_sesi"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/sessionBookingRV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:clipToPadding="false"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider2"
+                    tools:itemCount="4"
+                    tools:listitem="@layout/row_item_session_info" />
             </LinearLayout>
 
             <LinearLayout
@@ -194,7 +201,7 @@
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/parentTopCL">
+                app:layout_constraintTop_toBottomOf="@+id/sessionLL">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -211,41 +218,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/dimen_16">
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/dimen_8">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="@dimen/dimen_8"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:text="@string/member_code"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="@dimen/text_14" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="@dimen/dimen_8"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:text="@string/semicolon"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="@dimen/text_14" />
-
-                        <TextView
-                            android:id="@+id/userCodeTV"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:text="@string/dash"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="@dimen/text_14" />
-                    </TableRow>
-
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -359,22 +331,23 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:background="@color/colorAccent"
-        app:layout_anchorGravity="start|center">
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
             android:id="@+id/hintPayToMillennialTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
             android:includeFontPadding="false"
-            android:text="@string/pay_to_millennial"
+            android:text="@string/total_tagihan"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/payToMillennialTV"
+            android:id="@+id/totalTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -384,30 +357,5 @@
             app:layout_constraintBottom_toBottomOf="@+id/hintPayToMillennialTV"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/hintPayToMillennialTV" />
-
-        <TextView
-            android:id="@+id/hintPayToMitraTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp"
-            android:includeFontPadding="false"
-            android:text="@string/pay_to_mitra"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/hintPayToMillennialTV" />
-
-        <TextView
-            android:id="@+id/payToMitraTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:includeFontPadding="false"
-            android:text="@string/dummy_rp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/hintPayToMitraTV"
-            app:layout_constraintEnd_toEndOf="@+id/payToMillennialTV"
-            app:layout_constraintTop_toTopOf="@+id/hintPayToMitraTV" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

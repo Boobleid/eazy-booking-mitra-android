@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/space_16">
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_1"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/hintSessionTV"
+        android:layout_width="@dimen/space_0"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textSize="@dimen/size_14"
+        app:layout_constraintEnd_toStartOf="@id/priceTV"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        tools:text="Sesi 1" />
+
+    <TextView
+        android:id="@+id/priceTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/hintSessionTV"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:textSize="@dimen/size_14"
+        app:layout_constraintBottom_toBottomOf="@id/hintSessionTV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/hintSessionTV"
+        tools:text="Rp100.000" />
+
+    <TextView
+        android:id="@+id/discountPriceTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/hintSessionTV"
+        android:layout_marginTop="@dimen/space_4"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:textSize="@dimen/size_14"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/priceTV"
+        tools:text="Rp100.000" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -210,7 +210,7 @@ object UtilFunctions {
         }
         val originalReplace = original?.replace(".00", "")
         val myBalance = originalReplace?.toLong() ?: 0F
-        val total = "Rp "
+        val total = "Rp"
         val valueRp = NumberFormat.getNumberInstance(localeID).format(myBalance).replace(",", ".")
         strValue = total + valueRp
         return strValue

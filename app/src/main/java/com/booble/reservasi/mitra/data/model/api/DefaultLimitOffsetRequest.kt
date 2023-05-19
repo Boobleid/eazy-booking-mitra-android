@@ -7,5 +7,7 @@ data class DefaultLimitOffsetRequest(
     @SerializedName("limit")
     var limit: String? = null,
     @SerializedName("offset")
-    var offset: String? = null
+    var offset: String? = null,
+    @SerializedName("cari")
+    var cari: String? = null
 )

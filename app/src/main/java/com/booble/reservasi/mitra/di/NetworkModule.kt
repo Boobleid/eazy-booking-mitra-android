@@ -3,8 +3,11 @@ package com.booble.reservasi.mitra.di
 import android.content.Context
 import com.booble.reservasi.mitra.BuildConfig
 import com.booble.reservasi.mitra.data.local.pref.AppPreferencesHelper
+import com.booble.reservasi.mitra.data.network.NetworkConnectionInterceptor
 import com.booble.reservasi.mitra.data.remote.ApiService
 import com.booble.reservasi.mitra.utils.UtilFunctions
+import com.chuckerteam.chucker.api.ChuckerCollector
+import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
@@ -38,15 +41,32 @@ object NetworkModule {
     }
 
     @Provides
-    fun providesNetworkConnectionInterceptor(@ApplicationContext context: Context): com.booble.reservasi.mitra.data.network.NetworkConnectionInterceptor {
-        return com.booble.reservasi.mitra.data.network.NetworkConnectionInterceptor(context)
+    fun providesNetworkConnectionInterceptor(@ApplicationContext context: Context): NetworkConnectionInterceptor {
+        return NetworkConnectionInterceptor(context)
     }
 
     @Provides
-    fun providesOkHttpClient(logging: HttpLoggingInterceptor, networkConnectionInterceptor: com.booble.reservasi.mitra.data.network.NetworkConnectionInterceptor): OkHttpClient {
+    fun providesChuckerInterceptor(@ApplicationContext context: Context): ChuckerInterceptor {
+        val chuckerCollector = ChuckerCollector(
+            context = context,
+            showNotification = true
+        )
+
+        return ChuckerInterceptor.Builder(context)
+            .collector(chuckerCollector)
+            // Read the whole response body even when the client does not consume the response completely.
+            // This is useful in case of parsing errors or when the response body
+            // is closed before being read like in Retrofit with Void and Unit types.
+            .alwaysReadResponseBody(true)
+            .build()
+    }
+
+    @Provides
+    fun providesOkHttpClient(logging: HttpLoggingInterceptor, networkConnectionInterceptor: NetworkConnectionInterceptor, chuckerInterceptor: ChuckerInterceptor): OkHttpClient {
         return OkHttpClient.Builder()
             .readTimeout(120, TimeUnit.SECONDS)
             .connectTimeout(120, TimeUnit.SECONDS)
+            .addInterceptor(chuckerInterceptor)
             .addInterceptor { chain ->
                 val url = chain
                     .request()

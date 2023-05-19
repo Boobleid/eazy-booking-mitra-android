@@ -21,7 +21,6 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 
 class MapsActivity : BaseActivity<ActivityMapsBinding>(), OnMapReadyCallback {
-
     private lateinit var mMap: GoogleMap
     private var latLong: LatLng? = null
     private var extraServiceData: ServiceData? = null

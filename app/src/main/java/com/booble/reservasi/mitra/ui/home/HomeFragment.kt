@@ -9,6 +9,7 @@ import com.booble.reservasi.mitra.data.model.api.service.ServiceResponse
 import com.booble.reservasi.mitra.data.network.DataResource
 import com.booble.reservasi.mitra.databinding.FragmentHomeBinding
 import com.booble.reservasi.mitra.ui.home.add_service.AddServiceActivity
+import com.booble.reservasi.mitra.ui.scanner.ScannerActivity
 import com.booble.reservasi.mitra.ui.service_detail.ServiceDetailActivity
 import com.booble.reservasi.mitra.utils.UtilConstants.ZERO_DATA
 import com.booble.reservasi.mitra.utils.UtilExceptions.handleApiError
@@ -27,6 +28,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
     override fun initView() {
         initDataUser()
+        initClick()
         setupUI()
         setupListener()
     }
@@ -64,16 +66,22 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         }
     }
 
+    private fun initClick() {
+        binding.addMB.setOnClickListener {
+            requireActivity().openActivity(AddServiceActivity::class.java)
+        }
+
+        binding.scannerMB.setOnClickListener {
+            requireActivity().openActivity(ScannerActivity::class.java)
+        }
+    }
+
     private fun setupUI() {
         binding.listDataRV.adapter = homeOrderAdapter
     }
 
     private fun setupListener() {
         with(binding) {
-            binding.addMB.setOnClickListener {
-                requireActivity().openActivity(AddServiceActivity::class.java)
-            }
-
             swipeRefresh.setOnRefreshListener {
                 strSearch = ""
                 binding.searchProductSV.setQuery("", false)

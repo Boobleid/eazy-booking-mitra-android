@@ -136,6 +136,10 @@ dependencies {
     // optional - MultiProcess support
     implementation "androidx.work:work-multiprocess:$work_version"
 
+    // Chucker
+    debugImplementation("com.github.chuckerteam.chucker:library:$chucker_version")
+    releaseImplementation("com.github.chuckerteam.chucker:library-no-op:$chucker_version")
+
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     kapt 'com.github.bumptech.glide:compiler:4.12.0'
     implementation("com.github.bumptech.glide:okhttp3-integration:4.12.0") {

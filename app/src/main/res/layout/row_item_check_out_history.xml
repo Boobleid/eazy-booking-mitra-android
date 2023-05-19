@@ -89,11 +89,29 @@
         app:layout_constraintTop_toBottomOf="@+id/facilityNameTV" />
 
     <TextView
-        android:id="@+id/dateStatusTV"
+        android:id="@+id/dateTransactionTV"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/space_10"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_corner_outline_grey_r6"
+        android:gravity="center"
+        android:padding="@dimen/space_8"
+        android:text="@string/dummy_check_in"
+        android:textColor="@color/colorTextHint"
+        android:textSize="@dimen/size_10"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/invoiceTV"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/dateBookingTV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="6dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/bg_corner_outline_grey_r6"
         android:gravity="center"
@@ -104,10 +122,11 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/invoiceTV"
+        app:layout_constraintTop_toBottomOf="@+id/dateTransactionTV"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
+        android:visibility="gone"
         android:id="@+id/statusTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -122,8 +141,8 @@
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/size_10"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/dateStatusTV"
+        app:layout_constraintBottom_toBottomOf="@+id/dateTransactionTV"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/dateStatusTV"
+        app:layout_constraintTop_toTopOf="@+id/dateTransactionTV"
         app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

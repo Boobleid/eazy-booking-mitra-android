@@ -1,4 +1,4 @@
-package com.booble.reservasi.mitra.back_up.ui.scanner
+package com.booble.reservasi.mitra.ui.scanner
 
 import android.Manifest
 import android.app.Dialog
@@ -8,6 +8,7 @@ import android.graphics.drawable.ColorDrawable
 import android.view.View
 import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
+import androidx.fragment.app.viewModels
 import com.booble.reservasi.mitra.R
 import com.booble.reservasi.mitra.base.BaseActivity
 import com.booble.reservasi.mitra.data.model.api.booking_user.booking_detail.BookingDetailRequest
@@ -17,6 +18,11 @@ import com.booble.reservasi.mitra.databinding.ActivityScannerBinding
 import com.booble.reservasi.mitra.databinding.DialogFailedScannerBinding
 import com.booble.reservasi.mitra.back_up.ui.home.detail_order.DetailOrderViewModel
 import com.booble.reservasi.mitra.back_up.ui.user_order.InfoUserOrderActivity
+import com.booble.reservasi.mitra.data.model.api.DefaultLimitOffsetRequest
+import com.booble.reservasi.mitra.data.model.api.check_history.CheckOutHistoryResponse
+import com.booble.reservasi.mitra.ui.booking_history.BookingHistoryViewModel
+import com.booble.reservasi.mitra.ui.booking_history.detail.BookingHistoryDetailActivity
+import com.booble.reservasi.mitra.utils.UtilConstants
 import com.booble.reservasi.mitra.utils.UtilConstants.CODE_FIRST_INV
 import com.booble.reservasi.mitra.utils.UtilConstants.STATUS_SUCCESS
 import com.booble.reservasi.mitra.utils.UtilExceptions.handleApiError
@@ -30,7 +36,7 @@ import me.dm7.barcodescanner.zxing.ZXingScannerView
 
 @AndroidEntryPoint
 class ScannerActivity : BaseActivity<ActivityScannerBinding>(), ZXingScannerView.ResultHandler {
-    private val detailOrderViewModel by viewModels<DetailOrderViewModel>()
+    private val historyViewModel by viewModels<BookingHistoryViewModel>()
     private var isLight = true
     private lateinit var dialogFailed: Dialog
 
@@ -46,20 +52,32 @@ class ScannerActivity : BaseActivity<ActivityScannerBinding>(), ZXingScannerView
     }
 
     override fun initObservers() {
-        detailOrderViewModel.getBookingUserDetail.observe(this, {
+        historyViewModel.getCheckOutHistory.observe(this) {
             when (it) {
                 is DataResource.Loading -> showLoading(true)
-                is DataResource.Success -> showViewBookingDetail(it.value)
+                is DataResource.Success -> openBookingDetail(it.value)
                 is DataResource.Failure -> showFailure(it)
             }
-        })
+        }
+    }
+
+    private fun openBookingDetail(response: CheckOutHistoryResponse) {
+        val countData = response.data?.size ?: 0
+        if (countData > 0) {
+            val data = response.data?.get(0)
+            openActivity(BookingHistoryDetailActivity::class.java) {
+                putParcelable(BookingHistoryDetailActivity.EXTRA_CHECK_OUT_HISTORY, data)
+            }
+            finish()
+        } else {
+            myToast("Data tidak ditemukan")
+        }
     }
 
     override fun showFailure(failure: DataResource.Failure) {
         showLoading(false)
         handleApiError(failure)
     }
-
 
     override fun handleResult(result: Result?) {
         val code = result?.text
@@ -100,7 +118,8 @@ class ScannerActivity : BaseActivity<ActivityScannerBinding>(), ZXingScannerView
             myToast(getString(R.string.required_scan_qr))
             return
         }
-        detailOrderViewModel.getBookingUserDetailApiCall(BookingDetailRequest(idBooking))
+        val request = DefaultLimitOffsetRequest(UtilConstants.LIMIT_VALUE, UtilConstants.OFFSET_VALUE, idBooking)
+        historyViewModel.getCheckOutHistoryApiCall(request)
     }
 
     private fun hasFlash() = applicationContext.packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)
@@ -138,18 +157,6 @@ class ScannerActivity : BaseActivity<ActivityScannerBinding>(), ZXingScannerView
         bindingDialog.mbBack.setOnClickListener {
             dialogFailed.dismiss()
             binding.scanner.resumeCameraPreview(this)
-        }
-    }
-
-    private fun showViewBookingDetail(response: BookingDetailResponse) {
-        showLoading(false)
-        if (isStringNull(response.message) == STATUS_SUCCESS) {
-            openActivity(InfoUserOrderActivity::class.java) {
-                putParcelable(InfoUserOrderActivity.EXTRA_BOOKING_DETAIL, response)
-            }
-        } else {
-            myToast(response.message.toString())
-            return
         }
     }
 

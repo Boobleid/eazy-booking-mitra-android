@@ -39,7 +39,7 @@
         <entry key="app/src/main/res/layout/activity_chat.xml" value="0.1203125" />
         <entry key="app/src/main/res/layout/activity_check_barang.xml" value="0.21388888888888888" />
         <entry key="app/src/main/res/layout/activity_check_item.xml" value="0.21388888888888888" />
-        <entry key="app/src/main/res/layout/activity_check_out_history_detail.xml" value="0.17076922477559842" />
+        <entry key="app/src/main/res/layout/activity_check_out_history_detail.xml" value="0.34186706542968753" />
         <entry key="app/src/main/res/layout/activity_contact.xml" value="0.2677421652212781" />
         <entry key="app/src/main/res/layout/activity_detail_checkout.xml" value="0.25373535156249993" />
         <entry key="app/src/main/res/layout/activity_detail_order.xml" value="0.21388888888888888" />
@@ -67,9 +67,9 @@
         <entry key="app/src/main/res/layout/fragment_add_furniture_dialog.xml" value="0.25092837359095693" />
         <entry key="app/src/main/res/layout/fragment_add_member_service.xml" value="0.2203125" />
         <entry key="app/src/main/res/layout/fragment_balance_history.xml" value="0.4134078212290503" />
-        <entry key="app/src/main/res/layout/fragment_check_out_history.xml" value="7.242464117864161" />
+        <entry key="app/src/main/res/layout/fragment_check_out_history.xml" value="0.27053266034462936" />
         <entry key="app/src/main/res/layout/fragment_finish_message_dialog.xml" value="0.234375" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.20521619310424027" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_pop_up_item.xml" value="0.234375" />
         <entry key="app/src/main/res/layout/fragment_withdraw.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_container_checkout.xml" value="0.2578125" />
@@ -80,7 +80,7 @@
         <entry key="app/src/main/res/layout/row_item_add_facility_session.xml" value="0.25" />
         <entry key="app/src/main/res/layout/row_item_balance_history.xml" value="0.3074792243767313" />
         <entry key="app/src/main/res/layout/row_item_check_box.xml" value="0.3422265973998149" />
-        <entry key="app/src/main/res/layout/row_item_check_out_history.xml" value="0.4202218245054608" />
+        <entry key="app/src/main/res/layout/row_item_check_out_history.xml" value="0.43561336503280457" />
         <entry key="app/src/main/res/layout/row_item_contact_us.xml" value="0.21666666666666667" />
         <entry key="app/src/main/res/layout/row_item_facility_session.xml" value="0.234375" />
         <entry key="app/src/main/res/layout/row_item_help.xml" value="0.21666666666666667" />
@@ -88,6 +88,7 @@
         <entry key="app/src/main/res/layout/row_item_movie.xml" value="0.25580598331686194" />
         <entry key="app/src/main/res/layout/row_item_service_detail.xml" value="0.33" />
         <entry key="app/src/main/res/layout/row_item_session_facility.xml" value="0.234375" />
+        <entry key="app/src/main/res/layout/row_item_session_info.xml" value="0.3469589233398437" />
         <entry key="app/src/main/res/layout/row_item_user_order.xml" value="0.234375" />
         <entry key="app/src/main/res/layout/row_item_your_service.xml" value="0.5" />
       </map>
