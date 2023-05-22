@@ -303,4 +303,10 @@
     <string name="quota">Kuota</string>
     <string name="total_tagihan">Total Tagihan</string>
     <string name="info_sesi">Info Sesi</string>
+    <string name="filter">Filter</string>
+    <string name="cancel">Batal</string>
+    <string name="pilih_lokasi">Pilih Lokasi</string>
+    <string name="semua">Semua</string>
+    <string name="pilih_fasilitas">Pilih Fasilitas</string>
+    <string name="kalender_booking">Kalender Booking</string>
 </resources>

@@ -59,13 +59,35 @@
                 android:clipToPadding="false"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/filterMB"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/searchProductSV"
                 app:layout_constraintVertical_bias="0.0"
                 tools:itemCount="3"
                 tools:listitem="@layout/row_item_check_out_history" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/filterMB"
+                style="@style/OutlinedButton.RounderBorder.IconNoPadding"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_16"
+                android:layout_marginTop="@dimen/space_16"
+                android:layout_marginEnd="@dimen/space_16"
+                android:layout_marginBottom="@dimen/space_16"
+                android:backgroundTint="@color/colorGreen"
+                android:fontFamily="@font/montserrat_bold"
+                android:letterSpacing="0"
+                android:padding="@dimen/dimen_16"
+                android:text="@string/filter"
+                android:textAllCaps="false"
+                android:textSize="@dimen/text_16"
+                app:icon="@drawable/ic_filter"
+                app:iconGravity="textStart"
+                app:iconPadding="@dimen/space_8"
+                app:iconTint="@color/colorWhite"
+                app:layout_constraintBottom_toBottomOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

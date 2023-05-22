@@ -50,5 +50,7 @@
     <color name="colorNavy">#2D4357</color>
     <color name="colorNavyDark">#22384B</color>
     <color name="colorGreenLight">#1CBB0D</color>
+    <color name="colorGreen">#03C988</color>
     <color name="colorTransparentWhite">#3CC3C0C0</color>
+    <color name="transparant">#00000000</color>
 </resources>

@@ -9,6 +9,7 @@ import com.booble.reservasi.mitra.data.model.api.service.ServiceRequest
 import com.booble.reservasi.mitra.data.model.api.service.ServiceResponse
 import com.booble.reservasi.mitra.data.model.api.verfication_check_in.VerificationCheckInRequest
 import com.booble.reservasi.mitra.data.model.api.verfication_check_in.VerificationCheckInResponse
+import com.booble.reservasi.mitra.data.model.offline.LocationFilter
 import com.booble.reservasi.mitra.data.network.DataResource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -34,4 +35,7 @@ class HomeOrderViewModel @Inject constructor(
         _verificationCheckOut.value = DataResource.Loading
         _verificationCheckOut.value = dataRepository.verificationCheckOutApiCall(request)
     }
+
+    // to send data class between fragment
+    val locationFilter: MutableLiveData<LocationFilter?> = MutableLiveData()
 }

@@ -14,9 +14,13 @@ import com.booble.reservasi.mitra.data.model.api.booking_user.booking_item.Booki
 import com.booble.reservasi.mitra.data.model.api.booking_user.booking_item.BookingItemResponse
 import com.booble.reservasi.mitra.data.model.api.booking_user.item_condition.ItemConditionRequest
 import com.booble.reservasi.mitra.data.model.api.booking_user.item_condition.ItemConditionResponse
+import com.booble.reservasi.mitra.data.model.api.calendar.BookingDateCalendarRequest
+import com.booble.reservasi.mitra.data.model.api.calendar.BookingDateCalendarResponse
 import com.booble.reservasi.mitra.data.model.api.check_history.CheckOutHistoryResponse
 import com.booble.reservasi.mitra.data.model.api.check_history.detail.DetailCheckOutHistoryRequest
 import com.booble.reservasi.mitra.data.model.api.check_history.detail.DetailCheckOutHistoryResponse
+import com.booble.reservasi.mitra.data.model.api.facility.FacilityListRequest
+import com.booble.reservasi.mitra.data.model.api.facility.FacilityListResponse
 import com.booble.reservasi.mitra.data.model.api.forgot_password.ForgotPasswordRequest
 import com.booble.reservasi.mitra.data.model.api.forgot_password.ForgotPasswordResponse
 import com.booble.reservasi.mitra.data.model.api.help.HelpRequest
@@ -124,6 +128,9 @@ interface ApiService {
     @POST(PATH_ADD_ROOM)
     suspend fun addRoom(@Header(HEADER_X_ACCESS_TOKEN) token: String, @Body request: AddRoomRequest): AddRoomResponse
 
+    @POST(PATH_FACILITY_LIST)
+    suspend fun facilityList(@Header(HEADER_X_ACCESS_TOKEN) token: String, @Body request: FacilityListRequest): FacilityListResponse
+
     @POST(PATH_ADD_FACILITY)
     suspend fun addFacility(@Header(HEADER_X_ACCESS_TOKEN) token: String, @Body request: AddFacilityRequest): AddFacilityResponse
 
@@ -169,6 +176,9 @@ interface ApiService {
     @POST(PATH_LIST_CONTACT)
     suspend fun loadListContact(@Header(HEADER_X_ACCESS_TOKEN) token: String): ContactResponse
 
+    @POST(PATH_BOOKING_DATE_LIST)
+    suspend fun loadBookingDate(@Header(HEADER_X_ACCESS_TOKEN) token: String, @Body request: BookingDateCalendarRequest): BookingDateCalendarResponse
+
     companion object {
         const val HEADER_X_ACCESS_TOKEN = "x-access-token"
 
@@ -191,6 +201,7 @@ interface ApiService {
         const val PATH_CATEGORY = "/list/kategori_layanan"
         const val PATH_ADD_SERVICE = "/simpan/simpan_layanan"
         const val PATH_ADD_FURNITURE = "/simpan/simpan_perabotan"
+        const val PATH_FACILITY_LIST = "/list/list_fasilitas"
         const val PATH_ADD_ROOM = "/simpan/simpan_kamar"
         const val PATH_ADD_FACILITY = "/simpan/simpan_fasilitas"
         const val PATH_LIST_FURNITURE = "/list/perabotan"
@@ -208,5 +219,6 @@ interface ApiService {
         const val PATH_BALANCE_HISTORY = "/detail/riwayat_bonus"
         const val PATH_LIST_HELP = "/list/list_bantuan"
         const val PATH_LIST_CONTACT = "/list/list_kontak"
+        const val PATH_BOOKING_DATE_LIST = "/list/kalender_booking"
     }
 }

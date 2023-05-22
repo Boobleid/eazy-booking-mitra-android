@@ -23,4 +23,8 @@ data class ServiceData(
     var lng: String? = null,
     @SerializedName("nama")
     var nama: String? = null
-) : Parcelable
+) : Parcelable {
+    override fun toString(): String {
+        return nama ?: ""
+    }
+}

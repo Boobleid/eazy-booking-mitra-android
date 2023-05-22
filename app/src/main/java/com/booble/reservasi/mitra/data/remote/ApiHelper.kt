@@ -14,9 +14,13 @@ import com.booble.reservasi.mitra.data.model.api.booking_user.booking_item.Booki
 import com.booble.reservasi.mitra.data.model.api.booking_user.booking_item.BookingItemResponse
 import com.booble.reservasi.mitra.data.model.api.booking_user.item_condition.ItemConditionRequest
 import com.booble.reservasi.mitra.data.model.api.booking_user.item_condition.ItemConditionResponse
+import com.booble.reservasi.mitra.data.model.api.calendar.BookingDateCalendarRequest
+import com.booble.reservasi.mitra.data.model.api.calendar.BookingDateCalendarResponse
 import com.booble.reservasi.mitra.data.model.api.check_history.CheckOutHistoryResponse
 import com.booble.reservasi.mitra.data.model.api.check_history.detail.DetailCheckOutHistoryRequest
 import com.booble.reservasi.mitra.data.model.api.check_history.detail.DetailCheckOutHistoryResponse
+import com.booble.reservasi.mitra.data.model.api.facility.FacilityListRequest
+import com.booble.reservasi.mitra.data.model.api.facility.FacilityListResponse
 import com.booble.reservasi.mitra.data.model.api.forgot_password.ForgotPasswordRequest
 import com.booble.reservasi.mitra.data.model.api.forgot_password.ForgotPasswordResponse
 import com.booble.reservasi.mitra.data.model.api.help.HelpRequest
@@ -82,6 +86,7 @@ interface ApiHelper {
     suspend fun addServiceApiCall(token: String, request: AddServiceRequest): AddServiceResponse
     suspend fun addFurnitureApiCall(token: String, request: AddFurnitureRequest): AddFurnitureResponse
     suspend fun addRoomApiCall(token: String, request: AddRoomRequest): AddRoomResponse
+    suspend fun facilityListApiCall(token: String, request: FacilityListRequest): FacilityListResponse
     suspend fun addFacilityApiCall(token: String, request: AddFacilityRequest): AddFacilityResponse
     suspend fun getFurnitureApiCall(token: String): FurnitureResponse
     suspend fun getFacilityBuildingApiCall(token: String): FacilityBuildingResponse
@@ -97,4 +102,5 @@ interface ApiHelper {
     suspend fun getBalanceHistoryApiCall(token: String): BalanceHistoryResponse
     suspend fun loadListHelpApiCall(token: String, request: HelpRequest): HelpResponse
     suspend fun loadListContactApiCall(token: String): ContactResponse
+    suspend fun loadBookingDate(token: String, request: BookingDateCalendarRequest): BookingDateCalendarResponse
 }

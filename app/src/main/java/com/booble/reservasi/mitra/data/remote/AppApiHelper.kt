@@ -14,9 +14,13 @@ import com.booble.reservasi.mitra.data.model.api.booking_user.booking_item.Booki
 import com.booble.reservasi.mitra.data.model.api.booking_user.booking_item.BookingItemResponse
 import com.booble.reservasi.mitra.data.model.api.booking_user.item_condition.ItemConditionRequest
 import com.booble.reservasi.mitra.data.model.api.booking_user.item_condition.ItemConditionResponse
+import com.booble.reservasi.mitra.data.model.api.calendar.BookingDateCalendarRequest
+import com.booble.reservasi.mitra.data.model.api.calendar.BookingDateCalendarResponse
 import com.booble.reservasi.mitra.data.model.api.check_history.CheckOutHistoryResponse
 import com.booble.reservasi.mitra.data.model.api.check_history.detail.DetailCheckOutHistoryRequest
 import com.booble.reservasi.mitra.data.model.api.check_history.detail.DetailCheckOutHistoryResponse
+import com.booble.reservasi.mitra.data.model.api.facility.FacilityListRequest
+import com.booble.reservasi.mitra.data.model.api.facility.FacilityListResponse
 import com.booble.reservasi.mitra.data.model.api.forgot_password.ForgotPasswordRequest
 import com.booble.reservasi.mitra.data.model.api.help.HelpRequest
 import com.booble.reservasi.mitra.data.model.api.help.HelpResponse
@@ -129,6 +133,13 @@ class AppApiHelper @Inject constructor(
         return apiService.addRoom(token, request)
     }
 
+    override suspend fun facilityListApiCall(
+        token: String,
+        request: FacilityListRequest
+    ): FacilityListResponse {
+        return apiService.facilityList(token, request)
+    }
+
     override suspend fun addFacilityApiCall(token: String, request: AddFacilityRequest): AddFacilityResponse {
         return apiService.addFacility(token, request)
     }
@@ -187,5 +198,9 @@ class AppApiHelper @Inject constructor(
 
     override suspend fun loadListContactApiCall(token: String): ContactResponse {
         return apiService.loadListContact(token)
+    }
+
+    override suspend fun loadBookingDate(token: String, request: BookingDateCalendarRequest): BookingDateCalendarResponse {
+        return apiService.loadBookingDate(token, request)
     }
 }

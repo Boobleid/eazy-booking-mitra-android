@@ -166,7 +166,7 @@
             app:iconGravity="textStart"
             app:iconPadding="@dimen/space_8"
             app:iconTint="@color/colorWhite"
-            app:layout_constraintTop_toBottomOf="@id/divider"/>
+            app:layout_constraintTop_toBottomOf="@id/divider" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listDataRV"
@@ -201,7 +201,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/statusTV" />
 
-
         <RelativeLayout
             android:id="@+id/buttonRL"
             android:layout_width="match_parent"
@@ -217,13 +216,33 @@
                 android:background="@color/colorNavyDark" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/calendarMB"
+                style="@style/OutlinedButton.RounderBorder.IconNoPadding"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_16"
+                android:layout_marginTop="@dimen/space_16"
+                android:layout_marginEnd="@dimen/space_16"
+                android:layout_marginBottom="@dimen/space_16"
+                android:backgroundTint="@color/colorGreen"
+                android:fontFamily="@font/montserrat_bold"
+                android:letterSpacing="0"
+                android:padding="@dimen/dimen_16"
+                android:text="@string/kalender_booking"
+                android:textAllCaps="false"
+                android:textSize="@dimen/text_16"
+                app:icon="@drawable/ic_calendar_month"
+                app:iconGravity="textStart"
+                app:iconPadding="@dimen/space_8"
+                app:iconTint="@color/colorWhite" />
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/scannerMB"
                 style="@style/OutlinedButton.RounderBorder.IconNoPadding"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
+                android:layout_below="@id/calendarMB"
                 android:layout_marginStart="@dimen/space_16"
-                android:layout_marginTop="@dimen/space_16"
                 android:layout_marginEnd="@dimen/space_16"
                 android:layout_marginBottom="@dimen/space_16"
                 android:backgroundTint="@color/colorOrange"

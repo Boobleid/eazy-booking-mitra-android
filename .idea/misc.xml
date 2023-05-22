@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.1" />
+        <entry key="../../../Library/Android/sdk/platforms/android-32/data/res/layout/simple_spinner_dropdown_item.xml" value="0.1203125" />
         <entry key="../../Library/Android/sdk/platforms/android-30/data/res/layout/simple_spinner_dropdown_item.xml" value="0.234375" />
         <entry key="app/src/main/res/drawable/background_item_right_chat.xml" value="0.1155" />
         <entry key="app/src/main/res/drawable/bg_blue_r50.xml" value="0.25052083333333336" />
@@ -11,6 +12,7 @@
         <entry key="app/src/main/res/drawable/bg_corner_outline_grey_r6.xml" value="0.25052083333333336" />
         <entry key="app/src/main/res/drawable/bg_corner_outline_grey_r8.xml" value="10.0" />
         <entry key="app/src/main/res/drawable/bg_corner_outline_white_r6.xml" value="0.25052083333333336" />
+        <entry key="app/src/main/res/drawable/bg_grey_dark_r6.xml" value="0.1155" />
         <entry key="app/src/main/res/drawable/bg_left_radius_grey_outline.xml" value="0.25052083333333336" />
         <entry key="app/src/main/res/drawable/bg_navy_dark_r6.xml" value="0.23333333333333334" />
         <entry key="app/src/main/res/drawable/bg_orange_outline_rounded.xml" value="0.1155" />
@@ -22,6 +24,7 @@
         <entry key="app/src/main/res/drawable/bg_ripple_square_navy_orange.xml" value="0.24666666666666667" />
         <entry key="app/src/main/res/drawable/color_cursor.xml" value="0.1155" />
         <entry key="app/src/main/res/drawable/cursor_with_padding.xml" value="0.1155" />
+        <entry key="app/src/main/res/drawable/dot.xml" value="0.1155" />
         <entry key="app/src/main/res/drawable/ic_baseline_arrow_forward_16.xml" value="0.25052083333333336" />
         <entry key="app/src/main/res/drawable/ic_baseline_camera_alt_24.xml" value="0.25052083333333336" />
         <entry key="app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.25052083333333336" />
@@ -29,7 +32,12 @@
         <entry key="app/src/main/res/drawable/ic_chat.xml" value="0.25052083333333336" />
         <entry key="app/src/main/res/drawable/ic_info.xml" value="0.25052083333333336" />
         <entry key="app/src/main/res/drawable/ic_pin_picker.xml" value="0.24666666666666667" />
+        <entry key="app/src/main/res/drawable/ic_round_arrow_back.xml" value="0.1155" />
+        <entry key="app/src/main/res/drawable/ic_round_arrow_back_24.xml" value="0.1155" />
+        <entry key="app/src/main/res/drawable/ic_round_arrow_forward_white.xml" value="0.1155" />
+        <entry key="app/src/main/res/drawable/ic_round_arrow_right.xml" value="0.1155" />
         <entry key="app/src/main/res/drawable/ic_rupiah_currency.xml" value="0.25052083333333336" />
+        <entry key="app/src/main/res/drawable/ic_scan.xml" value="0.1195" />
         <entry key="app/src/main/res/drawable/ic_search.xml" value="0.1155" />
         <entry key="app/src/main/res/drawable/toggle_widget_background.xml" value="0.25052083333333336" />
         <entry key="app/src/main/res/layout/activity_add_facility.xml" value="0.13644592285156248" />
@@ -67,9 +75,10 @@
         <entry key="app/src/main/res/layout/fragment_add_furniture_dialog.xml" value="0.25092837359095693" />
         <entry key="app/src/main/res/layout/fragment_add_member_service.xml" value="0.2203125" />
         <entry key="app/src/main/res/layout/fragment_balance_history.xml" value="0.4134078212290503" />
+        <entry key="app/src/main/res/layout/fragment_calendar_booking_bottom_sheet.xml" value="0.23208171606355668" />
         <entry key="app/src/main/res/layout/fragment_check_out_history.xml" value="0.27053266034462936" />
         <entry key="app/src/main/res/layout/fragment_finish_message_dialog.xml" value="0.234375" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_pop_up_item.xml" value="0.234375" />
         <entry key="app/src/main/res/layout/fragment_withdraw.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_container_checkout.xml" value="0.2578125" />
@@ -82,6 +91,7 @@
         <entry key="app/src/main/res/layout/row_item_check_box.xml" value="0.3422265973998149" />
         <entry key="app/src/main/res/layout/row_item_check_out_history.xml" value="0.43561336503280457" />
         <entry key="app/src/main/res/layout/row_item_contact_us.xml" value="0.21666666666666667" />
+        <entry key="app/src/main/res/layout/row_item_date.xml" value="0.4502644856770833" />
         <entry key="app/src/main/res/layout/row_item_facility_session.xml" value="0.234375" />
         <entry key="app/src/main/res/layout/row_item_help.xml" value="0.21666666666666667" />
         <entry key="app/src/main/res/layout/row_item_member_service.xml" value="0.2647934030378828" />

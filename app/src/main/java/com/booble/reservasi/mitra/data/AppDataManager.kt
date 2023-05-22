@@ -17,9 +17,13 @@ import com.booble.reservasi.mitra.data.model.api.booking_user.booking_item.Booki
 import com.booble.reservasi.mitra.data.model.api.booking_user.booking_item.BookingItemResponse
 import com.booble.reservasi.mitra.data.model.api.booking_user.item_condition.ItemConditionRequest
 import com.booble.reservasi.mitra.data.model.api.booking_user.item_condition.ItemConditionResponse
+import com.booble.reservasi.mitra.data.model.api.calendar.BookingDateCalendarRequest
+import com.booble.reservasi.mitra.data.model.api.calendar.BookingDateCalendarResponse
 import com.booble.reservasi.mitra.data.model.api.check_history.CheckOutHistoryResponse
 import com.booble.reservasi.mitra.data.model.api.check_history.detail.DetailCheckOutHistoryRequest
 import com.booble.reservasi.mitra.data.model.api.check_history.detail.DetailCheckOutHistoryResponse
+import com.booble.reservasi.mitra.data.model.api.facility.FacilityListRequest
+import com.booble.reservasi.mitra.data.model.api.facility.FacilityListResponse
 import com.booble.reservasi.mitra.data.model.api.forgot_password.ForgotPasswordRequest
 import com.booble.reservasi.mitra.data.model.api.help.HelpRequest
 import com.booble.reservasi.mitra.data.model.api.help.HelpResponse
@@ -142,6 +146,13 @@ class AppDataManager @Inject constructor(
         return api.addRoomApiCall(token, request)
     }
 
+    override suspend fun facilityListApiCall(
+        token: String,
+        request: FacilityListRequest
+    ): FacilityListResponse {
+        return api.facilityListApiCall(token, request)
+    }
+
     override suspend fun addFacilityApiCall(token: String, request: AddFacilityRequest): AddFacilityResponse {
         return api.addFacilityApiCall(token, request)
     }
@@ -200,6 +211,13 @@ class AppDataManager @Inject constructor(
 
     override suspend fun loadListContactApiCall(token: String) : ContactResponse {
         return api.loadListContactApiCall(token)
+    }
+
+    override suspend fun loadBookingDate(
+        token: String,
+        request: BookingDateCalendarRequest
+    ): BookingDateCalendarResponse {
+        return api.loadBookingDate(token, request)
     }
 
     /** Local Data - Room Local Storage **/

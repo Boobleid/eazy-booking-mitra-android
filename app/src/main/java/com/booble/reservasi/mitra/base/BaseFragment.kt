@@ -16,7 +16,7 @@ import com.booble.reservasi.mitra.utils.UtilDialog
 typealias Inflate<T> = (LayoutInflater, ViewGroup, Boolean) -> T
 
 abstract class BaseFragment<viewBinding : ViewBinding>(
-    private val inflate: com.booble.reservasi.mitra.base.Inflate<viewBinding>
+    private val inflate: Inflate<viewBinding>
 ) : Fragment() {
     private var _binding: viewBinding? = null
     val binding get() = _binding!!

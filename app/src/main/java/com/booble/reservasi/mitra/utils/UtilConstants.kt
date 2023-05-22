@@ -29,6 +29,7 @@ object UtilConstants {
     const val STR_EDIT = "EDIT"
     const val STR_PAID = "Paid"
     const val STR_UNPAID = "Unpaid"
+    const val STR_ALL = "Semua"
     const val STR_OUT = "Keluar"
     const val TYPE_FACILITY = "Fasilitas"
     const val STR_TOKEN_EXPIRED = "token tidak sesuai"

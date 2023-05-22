@@ -8,7 +8,9 @@ import com.booble.reservasi.mitra.data.model.api.booking_user.BookingUserRequest
 import com.booble.reservasi.mitra.data.model.api.booking_user.booking_detail.BookingDetailRequest
 import com.booble.reservasi.mitra.data.model.api.booking_user.booking_item.BookingItemRequest
 import com.booble.reservasi.mitra.data.model.api.booking_user.item_condition.ItemConditionRequest
+import com.booble.reservasi.mitra.data.model.api.calendar.BookingDateCalendarRequest
 import com.booble.reservasi.mitra.data.model.api.check_history.detail.DetailCheckOutHistoryRequest
+import com.booble.reservasi.mitra.data.model.api.facility.FacilityListRequest
 import com.booble.reservasi.mitra.data.model.api.forgot_password.ForgotPasswordRequest
 import com.booble.reservasi.mitra.data.model.api.help.HelpRequest
 import com.booble.reservasi.mitra.data.model.api.login.LoginRequest
@@ -116,6 +118,10 @@ class DataRepository @Inject constructor(
         appDataManager.addRoomApiCall(getAccessToken(), request)
     }
 
+    suspend fun facilityListApiCall(request: FacilityListRequest) = safeApiCall {
+        appDataManager.facilityListApiCall(getAccessToken(), request)
+    }
+
     suspend fun addFacilityApiCall(request: AddFacilityRequest) = safeApiCall {
         appDataManager.addFacilityApiCall(getAccessToken(), request)
     }
@@ -174,6 +180,10 @@ class DataRepository @Inject constructor(
 
     suspend fun loadListContactApiCall() = safeApiCall {
         appDataManager.loadListContactApiCall(getAccessToken())
+    }
+
+    suspend fun loadBookingDate(request: BookingDateCalendarRequest) = safeApiCall {
+        appDataManager.loadBookingDate(getAccessToken(), request)
     }
 
     /** Local Data - Room Local Storage **/
