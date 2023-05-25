@@ -4,6 +4,9 @@ import com.booble.reservasi.mitra.base.BaseRepository
 import com.booble.reservasi.mitra.data.model.api.DefaultLimitOffsetRequest
 import com.booble.reservasi.mitra.data.model.api.add_member.AddMemberServiceRequest
 import com.booble.reservasi.mitra.data.model.api.add_member.DeleteMemberServiceRequest
+import com.booble.reservasi.mitra.data.model.api.booking_cancel.BookingCancelListRequest
+import com.booble.reservasi.mitra.data.model.api.booking_cancel.BookingCancelRequest
+import com.booble.reservasi.mitra.data.model.api.booking_cancel.SendMessageConversationRequest
 import com.booble.reservasi.mitra.data.model.api.booking_user.BookingUserRequest
 import com.booble.reservasi.mitra.data.model.api.booking_user.booking_detail.BookingDetailRequest
 import com.booble.reservasi.mitra.data.model.api.booking_user.booking_item.BookingItemRequest
@@ -184,6 +187,26 @@ class DataRepository @Inject constructor(
 
     suspend fun loadBookingDate(request: BookingDateCalendarRequest) = safeApiCall {
         appDataManager.loadBookingDate(getAccessToken(), request)
+    }
+
+    suspend fun bookingCancelListApiCall(request: BookingCancelListRequest) = safeApiCall {
+        appDataManager.bookingCancelListApiCall(getAccessToken(), request)
+    }
+
+    suspend fun confirmBookingCancelApiCall(request: BookingCancelRequest) = safeApiCall {
+        appDataManager.confirmBookingCancelApiCall(getAccessToken(), request)
+    }
+
+    suspend fun bookingCancelConversationApiCall(request: BookingCancelRequest) = safeApiCall {
+        appDataManager.bookingCancelConversationApiCall(getAccessToken(), request)
+    }
+
+    suspend fun readMessageConversationApiCall(request: BookingCancelRequest) = safeApiCall {
+        appDataManager.readMessageConversationApiCall(getAccessToken(), request)
+    }
+
+    suspend fun sendMessageConversationApiCall(request: SendMessageConversationRequest) = safeApiCall {
+        appDataManager.sendMessageConversationApiCall(getAccessToken(), request)
     }
 
     /** Local Data - Room Local Storage **/

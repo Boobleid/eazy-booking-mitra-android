@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_marginTop="32dp"
-        app:SpinKit_Color="@color/colorAccent"
+        app:SpinKit_Color="@color/colorPrimary"
         app:SpinKit_Style="ThreeBounce"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -9,6 +9,9 @@ import com.booble.reservasi.mitra.data.model.api.add_member.AddMemberServiceRequ
 import com.booble.reservasi.mitra.data.model.api.add_member.DeleteMemberServiceRequest
 import com.booble.reservasi.mitra.data.model.api.add_member.MemberServiceResponse
 import com.booble.reservasi.mitra.data.model.api.balance_history.BalanceHistoryResponse
+import com.booble.reservasi.mitra.data.model.api.booking_cancel.BookingCancelListRequest
+import com.booble.reservasi.mitra.data.model.api.booking_cancel.BookingCancelRequest
+import com.booble.reservasi.mitra.data.model.api.booking_cancel.SendMessageConversationRequest
 import com.booble.reservasi.mitra.data.model.api.booking_user.BookingUserRequest
 import com.booble.reservasi.mitra.data.model.api.booking_user.BookingUserResponse
 import com.booble.reservasi.mitra.data.model.api.booking_user.booking_detail.BookingDetailRequest
@@ -213,12 +216,13 @@ class AppDataManager @Inject constructor(
         return api.loadListContactApiCall(token)
     }
 
-    override suspend fun loadBookingDate(
-        token: String,
-        request: BookingDateCalendarRequest
-    ): BookingDateCalendarResponse {
-        return api.loadBookingDate(token, request)
-    }
+    override suspend fun loadBookingDate(token: String, request: BookingDateCalendarRequest) = api.loadBookingDate(token, request)
+
+    override suspend fun bookingCancelListApiCall(token: String, request: BookingCancelListRequest) = api.bookingCancelListApiCall(token, request)
+    override suspend fun confirmBookingCancelApiCall(token: String, request: BookingCancelRequest) = api.confirmBookingCancelApiCall(token, request)
+    override suspend fun bookingCancelConversationApiCall(token: String, request: BookingCancelRequest) = api.bookingCancelConversationApiCall(token, request)
+    override suspend fun readMessageConversationApiCall(token: String, request: BookingCancelRequest) = api.readMessageConversationApiCall(token, request)
+    override suspend fun sendMessageConversationApiCall(token: String, request: SendMessageConversationRequest) = api.sendMessageConversationApiCall(token, request)
 
     /** Local Data - Room Local Storage **/
     override suspend fun clearMovies() {

@@ -45,6 +45,7 @@
     <color name="colorSilver">#E5E7EB</color>
     <color name="colorGreyDarkHigh">#565656</color>
     <color name="colorChatDark">#F5F6F9</color>
+    <color name="colorGreyWhite">#D6D4D4</color>
 
     <!--New Color-->
     <color name="colorNavy">#2D4357</color>

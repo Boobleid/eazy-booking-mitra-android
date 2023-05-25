@@ -6,6 +6,7 @@ import com.booble.reservasi.mitra.data.model.api.add_member.AddMemberServiceRequ
 import com.booble.reservasi.mitra.data.model.api.add_member.DeleteMemberServiceRequest
 import com.booble.reservasi.mitra.data.model.api.add_member.MemberServiceResponse
 import com.booble.reservasi.mitra.data.model.api.balance_history.BalanceHistoryResponse
+import com.booble.reservasi.mitra.data.model.api.booking_cancel.*
 import com.booble.reservasi.mitra.data.model.api.booking_user.BookingUserRequest
 import com.booble.reservasi.mitra.data.model.api.booking_user.BookingUserResponse
 import com.booble.reservasi.mitra.data.model.api.booking_user.booking_detail.BookingDetailRequest
@@ -202,5 +203,40 @@ class AppApiHelper @Inject constructor(
 
     override suspend fun loadBookingDate(token: String, request: BookingDateCalendarRequest): BookingDateCalendarResponse {
         return apiService.loadBookingDate(token, request)
+    }
+
+    override suspend fun bookingCancelListApiCall(
+        token: String,
+        request: BookingCancelListRequest
+    ): BookingCancelListResponse {
+        return apiService.bookingCancelList(token, request)
+    }
+
+    override suspend fun confirmBookingCancelApiCall(
+        token: String,
+        request: BookingCancelRequest
+    ): DefaultApiResponse {
+        return apiService.confirmBookingCancel(token, request)
+    }
+
+    override suspend fun bookingCancelConversationApiCall(
+        token: String,
+        request: BookingCancelRequest
+    ): CancelConversationResponse {
+        return apiService.bookingCancelConversation(token, request)
+    }
+
+    override suspend fun readMessageConversationApiCall(
+        token: String,
+        request: BookingCancelRequest
+    ): DefaultApiResponse {
+        return apiService.readMessageConversation(token, request)
+    }
+
+    override suspend fun sendMessageConversationApiCall(
+        token: String,
+        request: SendMessageConversationRequest
+    ): DefaultApiResponse {
+        return apiService.sendMessageConversation(token, request)
     }
 }

@@ -64,6 +64,37 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/menuCancelBookingRL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_ripple_square_navy_orange"
+        android:paddingVertical="@dimen/space_12"
+        android:paddingStart="@dimen/space_10"
+        android:paddingEnd="@dimen/space_12">
+
+        <ImageView
+            android:id="@+id/ivCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_free_cancellation"
+            app:tint="@color/colorAccent" />
+
+        <TextView
+            android:id="@+id/cancelTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="13dp"
+            android:layout_toEndOf="@id/ivCancel"
+            android:fontFamily="@font/montserrat_regular"
+            android:includeFontPadding="false"
+            android:text="@string/permintaan_pembatalan"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
         android:id="@+id/menuBookingHistoryBalanceRL"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

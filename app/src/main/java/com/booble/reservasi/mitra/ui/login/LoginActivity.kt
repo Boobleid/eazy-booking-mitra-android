@@ -28,13 +28,13 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
     }
 
     override fun initObservers() {
-        loginViewModel.loginManual.observe(this, {
+        loginViewModel.loginManual.observe(this) {
             when (it) {
                 is DataResource.Loading -> showLoading(true)
                 is DataResource.Success -> showViewLogin(it.value)
                 is DataResource.Failure -> showFailure(it)
             }
-        })
+        }
     }
 
     private fun showViewLogin(response: LoginResponse) {

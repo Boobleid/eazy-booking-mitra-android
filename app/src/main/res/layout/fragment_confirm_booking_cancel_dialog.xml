@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_16"
+        app:cardBackgroundColor="@color/colorNavy"
+        app:cardCornerRadius="@dimen/space_8">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_16"
+                android:text="@string/konfirmasi_pembatalan"
+                android:textSize="@dimen/size_16"
+                app:layout_constraintBottom_toBottomOf="@id/iconCloseIV"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/iconCloseIV" />
+
+            <ImageView
+                android:id="@+id/iconCloseIV"
+                android:layout_width="@dimen/space_45"
+                android:layout_height="@dimen/space_45"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/todo"
+                android:padding="@dimen/space_8"
+                android:src="@drawable/ic_baseline_close_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/statusTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_16"
+                android:layout_marginTop="@dimen/space_16"
+                android:text="@string/status"
+                android:textSize="@dimen/size_14"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iconCloseIV" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/space_16"
+                android:layout_marginTop="@dimen/space_8"
+                android:checkedButton="@+id/offer"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/statusTV">
+
+                <RadioButton
+                    android:id="@+id/radio1RB"
+                    android:layout_width="@dimen/space_100"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/diterima"
+                    android:textColor="@color/colorWhite"
+                    tools:checked="true" />
+
+                <RadioButton
+                    android:id="@+id/ditolakRB"
+                    android:layout_width="@dimen/space_100"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/ditolak"
+                    android:textColor="@color/colorWhite"
+                    tools:checked="true" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/reasonTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/space_16"
+                android:layout_marginTop="@dimen/space_16"
+                android:text="@string/keterangan_penolakan_"
+                android:textSize="@dimen/size_14"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+                tools:visibility="visible" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/reasonTIL"
+                style="@style/CustomTextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"
+                app:endIconMode="clear_text"
+                app:layout_constraintEnd_toEndOf="@+id/reasonTV"
+                app:layout_constraintStart_toStartOf="@+id/reasonTV"
+                app:layout_constraintTop_toBottomOf="@+id/reasonTV"
+                tools:visibility="visible">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/reasonET"
+                    style="@style/CustomWhiteEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/space_16"
+                    android:gravity="center_vertical"
+                    android:inputType="text"
+                    android:textSize="@dimen/size_14" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/saveMB"
+                style="@style/Button.Rounded.IconNoPadding.Shadow"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/space_50"
+                android:layout_marginVertical="@dimen/space_24"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/konfirmasi_pembatalan"
+                android:textAllCaps="false"
+                android:textSize="@dimen/size_16"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/reasonTIL"
+                app:layout_constraintVertical_bias="0.0"
+                app:rippleColor="@color/colorWhite" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

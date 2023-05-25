@@ -82,8 +82,8 @@
     <string name="email_address">Alamat Email</string>
     <string name="send_email">Kirim Email</string>
     <string name="dummy_name">Rivaldy</string>
-    <string name="dummy_name_apartment">Kamar Reguler 1 BD at Apartment Vida View</string>
-    <string name="dummy_facility_name">Apartment Vida View Makassar</string>
+    <string name="dummy_name_apartment">Booble Workingspace</string>
+    <string name="dummy_facility_name">Deluxe Private Room</string>
     <string name="dummy_check_in">Transaction 14/08/2021</string>
     <string name="no_data">Belum ada data</string>
     <string name="detail_check_in">Detail Check In</string>
@@ -309,4 +309,18 @@
     <string name="semua">Semua</string>
     <string name="pilih_fasilitas">Pilih Fasilitas</string>
     <string name="kalender_booking">Kalender Booking</string>
+    <string name="permintaan_pembatalan">Permintaan Pembatalan</string>
+    <string name="pengajuan">Pengajuan</string>
+    <string name="selesai">Selesai</string>
+    <string name="detail_booking">Detail Booking</string>
+    <string name="tanggal_booking">Tanggal Booking</string>
+    <string name="biaya_admin">Biaya Admin</string>
+    <string name="total">Total</string>
+    <string name="percakapan">Percakapan</string>
+    <string name="keterangan_penolakan">Keterangan Penolakan :</string>
+    <string name="keterangan_penolakan_">Keterangan Penolakan</string>
+    <string name="alasan_pembatalan">Alasan Pembatalan :</string>
+    <string name="konfirmasi_pembatalan">Konfirmasi Pembatalan</string>
+    <string name="diterima">Diterima</string>
+    <string name="ditolak">Ditolak</string>
 </resources>

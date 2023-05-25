@@ -6,6 +6,7 @@ import com.booble.reservasi.mitra.data.model.api.add_member.AddMemberServiceRequ
 import com.booble.reservasi.mitra.data.model.api.add_member.DeleteMemberServiceRequest
 import com.booble.reservasi.mitra.data.model.api.add_member.MemberServiceResponse
 import com.booble.reservasi.mitra.data.model.api.balance_history.BalanceHistoryResponse
+import com.booble.reservasi.mitra.data.model.api.booking_cancel.*
 import com.booble.reservasi.mitra.data.model.api.booking_user.BookingUserRequest
 import com.booble.reservasi.mitra.data.model.api.booking_user.BookingUserResponse
 import com.booble.reservasi.mitra.data.model.api.booking_user.booking_detail.BookingDetailRequest
@@ -103,4 +104,10 @@ interface ApiHelper {
     suspend fun loadListHelpApiCall(token: String, request: HelpRequest): HelpResponse
     suspend fun loadListContactApiCall(token: String): ContactResponse
     suspend fun loadBookingDate(token: String, request: BookingDateCalendarRequest): BookingDateCalendarResponse
+
+    suspend fun bookingCancelListApiCall(token: String, request: BookingCancelListRequest): BookingCancelListResponse
+    suspend fun confirmBookingCancelApiCall(token: String, request: BookingCancelRequest): DefaultApiResponse
+    suspend fun bookingCancelConversationApiCall(token: String, request: BookingCancelRequest): CancelConversationResponse
+    suspend fun readMessageConversationApiCall(token: String, request: BookingCancelRequest): DefaultApiResponse
+    suspend fun sendMessageConversationApiCall(token: String, request: SendMessageConversationRequest): DefaultApiResponse
 }

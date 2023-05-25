@@ -18,6 +18,7 @@ import com.booble.reservasi.mitra.data.network.DataResource
 import com.booble.reservasi.mitra.databinding.ActivityMainBinding
 import com.booble.reservasi.mitra.databinding.AppBarMainBinding
 import com.booble.reservasi.mitra.ui.balance_history.BalanceHistoryFragment
+import com.booble.reservasi.mitra.ui.booking_cancel.BookingCancelFragment
 import com.booble.reservasi.mitra.ui.booking_history.BookingHistoryFragment
 import com.booble.reservasi.mitra.ui.help.HelpActivity
 import com.booble.reservasi.mitra.ui.home.HomeFragment
@@ -133,6 +134,9 @@ class MainActivity : MainListener, BaseActivity<ActivityMainBinding>() {
             }
             menuBookingHistoryRL.setOnClickListener {
                 commitFragment(BookingHistoryFragment(), BookingHistoryFragment().tag.toString())
+            }
+            menuCancelBookingRL.setOnClickListener {
+                commitFragment(BookingCancelFragment(), BookingCancelFragment().tag.toString())
             }
             menuBookingHistoryBalanceRL.setOnClickListener {
                 commitFragment(BalanceHistoryFragment(), BalanceHistoryFragment().tag.toString())

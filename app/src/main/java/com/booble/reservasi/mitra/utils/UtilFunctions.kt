@@ -144,6 +144,11 @@ object UtilFunctions {
         return ArrayAdapter(context, R.layout.layout_spinner_item, items)
     }
 
+    fun getCurrentTime(format: String): String {
+        val dateFormat = SimpleDateFormat(format, localeID)
+        return dateFormat.format(Calendar.getInstance().time)
+    }
+
     fun dateToStrDate(calendar: Calendar): String {
         val sdf: DateFormat = SimpleDateFormat("yyyy-MM-dd", localeID) // 2021-08-21
         return sdf.format(calendar.time)
