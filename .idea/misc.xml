@@ -42,7 +42,7 @@
         <entry key="app/src/main/res/drawable/ic_scan.xml" value="0.1195" />
         <entry key="app/src/main/res/drawable/ic_search.xml" value="0.1155" />
         <entry key="app/src/main/res/drawable/toggle_widget_background.xml" value="0.25052083333333336" />
-        <entry key="app/src/main/res/layout/activity_add_facility.xml" value="0.13644592285156248" />
+        <entry key="app/src/main/res/layout/activity_add_facility.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_add_member_service.xml" value="0.23076923076923078" />
         <entry key="app/src/main/res/layout/activity_add_room.xml" value="0.22255192878338279" />
         <entry key="app/src/main/res/layout/activity_add_service.xml" value="0.218609865470852" />

@@ -92,6 +92,10 @@ class BookingCancelDetailActivity : BaseActivity<ActivityBookingCancelDetailBind
             sessionRV.adapter = sessionBookingAdapter
             sessionBookingAdapter.submitList(extraBooking?.sesi)
 
+            if (extraBooking?.alasanTolak?.isNotEmpty() == true) {
+                binding.reasonRefusalCL.visibility = View.VISIBLE
+            }
+
             when (extraBooking?.statusBatal) {
                 "Pengajuan" -> {
                     binding.statusTV.backgroundTintList = ContextCompat.getColorStateList(
@@ -149,11 +153,8 @@ class BookingCancelDetailActivity : BaseActivity<ActivityBookingCancelDetailBind
         binding.shimmer.visibility = View.GONE
         binding.reasonCancelCL.visibility = View.VISIBLE
 
-        if (extraBooking?.alasanTolak?.isNotEmpty() == true) {
-            binding.reasonRefusalCL.visibility = View.VISIBLE
-        }
-
         val list = response.data
+        conversationList.clear()
         list?.let { conversationList.addAll(it) }
         conversationAdapter.notifyDataSetChanged()
 
@@ -181,6 +182,8 @@ class BookingCancelDetailActivity : BaseActivity<ActivityBookingCancelDetailBind
 
         binding.messageET.setTextEditable("")
         binding.messageET.clearFocus()
+
+        cancelBookingViewModel.cancelConversationApiCall(BookingCancelRequest(invoice = extraBooking?.invoice))
     }
 
     private fun openConfirmBookingCancelDialog() {

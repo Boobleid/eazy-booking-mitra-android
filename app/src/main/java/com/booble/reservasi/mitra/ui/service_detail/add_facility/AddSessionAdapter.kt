@@ -18,17 +18,17 @@ import com.booble.reservasi.mitra.utils.UtilFunctions.loge
 
 @SuppressLint("NotifyDataSetChanged")
 class AddSessionAdapter(
-    private val listenerUpdates: (MutableList<AddFacilitySessionData>) -> Unit,
-    private val listenerDeletes: (MutableList<AddFacilitySessionData>) -> Unit,
+    private val listenerDeletes: (MutableList<AddFacilitySessionData>) -> Unit
 ) : RecyclerView.Adapter<AddSessionAdapter.AddSessionViewHolder>() {
     private var listData = mutableListOf<AddFacilitySessionData>()
-    private val days = mutableListOf<String>()
 
     fun setAddSessions(listData: MutableList<AddFacilitySessionData>) {
         this.listData.clear()
         this.listData.addAll(listData)
         notifyDataSetChanged()
     }
+
+    fun getSessions() = listData
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddSessionViewHolder {
         val binding = RowItemAddFacilitySessionBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -45,6 +45,8 @@ class AddSessionAdapter(
     inner class AddSessionViewHolder(private val binding: RowItemAddFacilitySessionBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bindItem(item: AddFacilitySessionData) {
+            val days = mutableListOf<String>()
+            item.hari?.let { days.addAll(it) }
             binding.apply {
                 initTimePicker(binding)
                 val session = root.context.getString(R.string.session_, (layoutPosition + 1).toString())
@@ -74,6 +76,7 @@ class AddSessionAdapter(
                     val text = checkbox1CB.text.toString()
                     if (isChecked) if (!days.contains(text)) days.add(text)
                     if (!isChecked) if (days.contains(text)) days.remove(text)
+                    item.hari = days
                     updateFacility(binding, item, adapterPosition)
                 }
 
@@ -81,6 +84,7 @@ class AddSessionAdapter(
                     val text = checkbox2CB.text.toString()
                     if (isChecked) if (!days.contains(text)) days.add(text)
                     if (!isChecked) if (days.contains(text)) days.remove(text)
+                    item.hari = days
                     updateFacility(binding, item, adapterPosition)
                 }
 
@@ -88,6 +92,7 @@ class AddSessionAdapter(
                     val text = checkbox3CB.text.toString()
                     if (isChecked) if (!days.contains(text)) days.add(text)
                     if (!isChecked) if (days.contains(text)) days.remove(text)
+                    item.hari = days
                     updateFacility(binding, item, adapterPosition)
                 }
 
@@ -95,6 +100,7 @@ class AddSessionAdapter(
                     val text = checkbox4CB.text.toString()
                     if (isChecked) if (!days.contains(text)) days.add(text)
                     if (!isChecked) if (days.contains(text)) days.remove(text)
+                    item.hari = days
                     updateFacility(binding, item, adapterPosition)
                 }
 
@@ -102,6 +108,7 @@ class AddSessionAdapter(
                     val text = checkbox5CB.text.toString()
                     if (isChecked) if (!days.contains(text)) days.add(text)
                     if (!isChecked) if (days.contains(text)) days.remove(text)
+                    item.hari = days
                     updateFacility(binding, item, adapterPosition)
                 }
 
@@ -109,6 +116,7 @@ class AddSessionAdapter(
                     val text = checkbox6CB.text.toString()
                     if (isChecked) if (!days.contains(text)) days.add(text)
                     if (!isChecked) if (days.contains(text)) days.remove(text)
+                    item.hari = days
                     updateFacility(binding, item, adapterPosition)
                 }
 
@@ -116,6 +124,7 @@ class AddSessionAdapter(
                     val text = checkbox7CB.text.toString()
                     if (isChecked) if (!days.contains(text)) days.add(text)
                     if (!isChecked) if (days.contains(text)) days.remove(text)
+                    item.hari = days
                     updateFacility(binding, item, adapterPosition)
                 }
 
@@ -151,10 +160,11 @@ class AddSessionAdapter(
             val startDate = timeStartET.text.toString()
             val endDate = timeEndET.text.toString()
 
-            val sessionFacility = AddFacilitySessionData(price, days, endDate, startDate, item.sesiKe, quota, UtilFunctions.getTimestamp())
-            val listSession = listData.toMutableList()
-            listSession[adapterPosition] = sessionFacility
-            listenerUpdates(listSession)
+            item.harga = price
+            item.jamMulai = startDate
+            item.jamAkhir = endDate
+            item.kuota = quota
+            item.timeStamp = UtilFunctions.getTimestamp()
         }
     }
 

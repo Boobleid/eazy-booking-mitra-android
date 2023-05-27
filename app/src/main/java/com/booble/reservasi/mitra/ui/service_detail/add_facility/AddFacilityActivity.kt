@@ -28,7 +28,6 @@ import com.booble.reservasi.mitra.utils.UtilConstants.INT_SIZE_500_KB
 import com.booble.reservasi.mitra.utils.UtilConstants.INT_SIZE_640_PX
 import com.booble.reservasi.mitra.utils.UtilConstants.STR_ADD
 import com.booble.reservasi.mitra.utils.UtilConstants.STR_EDIT
-import com.booble.reservasi.mitra.utils.UtilCoroutines
 import com.booble.reservasi.mitra.utils.UtilCoroutines.main
 import com.booble.reservasi.mitra.utils.UtilExceptions.handleApiError
 import com.booble.reservasi.mitra.utils.UtilExtensions.isValidate
@@ -37,6 +36,7 @@ import com.booble.reservasi.mitra.utils.UtilExtensions.myToast
 import com.booble.reservasi.mitra.utils.UtilExtensions.setTextEditable
 import com.booble.reservasi.mitra.utils.UtilFunctions
 import com.booble.reservasi.mitra.utils.UtilFunctions.getTimestamp
+import com.booble.reservasi.mitra.utils.UtilFunctions.loge
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
@@ -44,12 +44,11 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.github.dhaval2404.imagepicker.ImagePicker
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.*
 
 @AndroidEntryPoint
 class AddFacilityActivity : BaseActivity<ActivityAddFacilityBinding>() {
     private val addFacilityViewModel by viewModels<AddFacilityViewModel>()
-    private val addFacilityAdapter by lazy { AddSessionAdapter({ sessionFacilityClick(it) }, { sessionDeleteClick(it) }) }
+    private val addSessionAdapter by lazy { AddSessionAdapter { sessionDeleteClick(it) } }
     private var facilitySessions = mutableListOf<AddFacilitySessionData>()
     private var base64Images = mutableListOf("", "", "", "", "", "")
     private var imagePosition = 0
@@ -63,7 +62,7 @@ class AddFacilityActivity : BaseActivity<ActivityAddFacilityBinding>() {
     override fun initView() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true) ?: return
-        binding.listDataRV.adapter = addFacilityAdapter
+        binding.listDataRV.adapter = addSessionAdapter
         initClick()
         initData()
         checkedSessions(facilitySessions)
@@ -104,73 +103,18 @@ class AddFacilityActivity : BaseActivity<ActivityAddFacilityBinding>() {
         }
     }
 
-    private fun loadImageBitmap(imagePosition: Int, url: String) {
-        var imageView = binding.layout.image1IV
-        when (imagePosition) {
-            INT_0 -> imageView = binding.layout.image1IV
-            INT_1 -> imageView = binding.layout.image2IV
-            INT_2 -> imageView = binding.layout.image3IV
-            INT_3 -> imageView = binding.layout.image4IV
-            INT_4 -> imageView = binding.layout.image5IV
-            INT_5 -> imageView = binding.layout.image6IV
-        }
-        Glide.with(this)
-            .load(url)
-            .listener(object : RequestListener<Drawable> {
-                override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
-                    return false
-                }
-
-                override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
-                    val bitmap = (resource as BitmapDrawable).bitmap
-                    loadImageBitmap(imagePosition, bitmap)
-                    return false
-                }
-            })
-            .into(imageView)
-    }
-
-    private fun loadImageBitmap(imagePosition: Int, imageBitmap: Bitmap) {
-        main {
-            var imageView = binding.layout.image1IV
-            val base64Image = UtilFunctions.encodeImageBase64(imageBitmap)
-            base64Images[imagePosition] = base64Image
-            when (imagePosition) {
-                INT_0 -> imageView = binding.layout.image1IV
-                INT_1 -> imageView = binding.layout.image2IV
-                INT_2 -> imageView = binding.layout.image3IV
-                INT_3 -> imageView = binding.layout.image4IV
-                INT_4 -> imageView = binding.layout.image5IV
-                INT_5 -> imageView = binding.layout.image6IV
-            }
-            Glide.with(binding.root.context)
-                .load(imageBitmap)
-                .placeholder(R.color.colorDividerHigh)
-                .into(imageView)
-        }
-    }
-
     private fun initClick() {
         binding.saveMB.setOnClickListener {
-            if (!isValidate(binding.nameET)) return@setOnClickListener
-            if (!isValidate(binding.guestMaxET)) return@setOnClickListener
-            if (facilitySessions.size == 0) {
-                myToast(getString(R.string.session_empty_msg))
-                return@setOnClickListener
-            }
-
-            val name = binding.nameET.text.toString()
-            val desc = binding.roomDescET.text.toString()
-            val guestMax = binding.guestMaxET.text.toString()
-            val request = AddFacilityRequest(
-                strAction, desc, base64Images, strFacilityId, extraServiceData?.id.toString(),
-                guestMax, name, facilitySessions
-            )
-            addFacilityViewModel.addFacilityApiCall(request)
+            saveFacility()
         }
+
         binding.addSessionMB.setOnClickListener {
             val intSession = facilitySessions.size + 1
-            val session = AddFacilitySessionData(sesiKe = (intSession).toString(), timeStamp = getTimestamp(), hari = mutableListOf())
+            val session = AddFacilitySessionData(
+                sesiKe = (intSession).toString(),
+                timeStamp = getTimestamp(),
+                hari = mutableListOf()
+            )
             facilitySessions.add(session)
             checkedSessions(facilitySessions)
             myToast(getString(R.string.session_add_, intSession.toString()))
@@ -236,9 +180,100 @@ class AddFacilityActivity : BaseActivity<ActivityAddFacilityBinding>() {
         }
     }
 
-    override fun showFailure(failure: DataResource.Failure) {
+    private fun saveFacility() {
+        if (!isValidate(binding.nameET)) return
+        if (!isValidate(binding.guestMaxET)) return
+
+        val sessionList = addSessionAdapter.getSessions()
+        if (sessionList.size == 0) {
+            myToast(getString(R.string.session_empty_msg))
+            return
+        }
+
+        val name = binding.nameET.text.toString()
+        val desc = binding.roomDescET.text.toString()
+        val guestMax = binding.guestMaxET.text.toString()
+        val request = AddFacilityRequest(
+            strAction, desc, base64Images, strFacilityId, extraServiceData?.id.toString(),
+            guestMax, name, sessionList
+        )
+
+        addFacilityViewModel.addFacilityApiCall(request)
+    }
+
+    private fun showViewAddFacility(response: AddFacilityResponse) {
         showLoading(false)
-        handleApiError(failure)
+        myToast(response.message.toString())
+        if (response.status == true) {
+            finish()
+        }
+    }
+
+    private fun sessionDeleteClick(sessions: MutableList<AddFacilitySessionData>) {
+        facilitySessions = sessions
+        checkedSessions(facilitySessions)
+    }
+
+    private fun checkedSessions(sessions: MutableList<AddFacilitySessionData>) {
+        binding.noDataTV.isVisible(sessions.size == 0)
+        addSessionAdapter.setAddSessions(sessions)
+    }
+
+    private fun loadImageBitmap(imagePosition: Int, url: String) {
+        var imageView = binding.layout.image1IV
+        when (imagePosition) {
+            INT_0 -> imageView = binding.layout.image1IV
+            INT_1 -> imageView = binding.layout.image2IV
+            INT_2 -> imageView = binding.layout.image3IV
+            INT_3 -> imageView = binding.layout.image4IV
+            INT_4 -> imageView = binding.layout.image5IV
+            INT_5 -> imageView = binding.layout.image6IV
+        }
+        Glide.with(this)
+            .load(url)
+            .listener(object : RequestListener<Drawable> {
+                override fun onLoadFailed(
+                    e: GlideException?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    return false
+                }
+
+                override fun onResourceReady(
+                    resource: Drawable?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    dataSource: DataSource?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    val bitmap = (resource as BitmapDrawable).bitmap
+                    loadImageBitmap(imagePosition, bitmap)
+                    return false
+                }
+            })
+            .into(imageView)
+    }
+
+    private fun loadImageBitmap(imagePosition: Int, imageBitmap: Bitmap) {
+        main {
+            var imageView = binding.layout.image1IV
+            val base64Image = UtilFunctions.encodeImageBase64(imageBitmap)
+            base64Images[imagePosition] = base64Image
+            when (imagePosition) {
+                INT_0 -> imageView = binding.layout.image1IV
+                INT_1 -> imageView = binding.layout.image2IV
+                INT_2 -> imageView = binding.layout.image3IV
+                INT_3 -> imageView = binding.layout.image4IV
+                INT_4 -> imageView = binding.layout.image5IV
+                INT_5 -> imageView = binding.layout.image6IV
+            }
+            Glide.with(binding.root.context)
+                .load(imageBitmap)
+                .placeholder(R.color.colorDividerHigh)
+                .into(imageView)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -248,7 +283,7 @@ class AddFacilityActivity : BaseActivity<ActivityAddFacilityBinding>() {
                 val uri: Uri = data?.data!!
                 val imageStream = contentResolver.openInputStream(uri)
                 val imageBitmap = BitmapFactory.decodeStream(imageStream)
-                UtilCoroutines.main {
+                main {
                     var imageView = binding.layout.image1IV
                     val base64Image = UtilFunctions.encodeImageBase64(imageBitmap)
                     base64Images[imagePosition] = base64Image
@@ -269,26 +304,9 @@ class AddFacilityActivity : BaseActivity<ActivityAddFacilityBinding>() {
         }
     }
 
-    private fun showViewAddFacility(response: AddFacilityResponse) {
+    override fun showFailure(failure: DataResource.Failure) {
         showLoading(false)
-        myToast(response.message.toString())
-        if (response.status == true) {
-            finish()
-        }
-    }
-
-    private fun sessionFacilityClick(newList: MutableList<AddFacilitySessionData>) {
-        facilitySessions = newList
-    }
-
-    private fun sessionDeleteClick(sessions: MutableList<AddFacilitySessionData>) {
-        facilitySessions = sessions
-        checkedSessions(facilitySessions)
-    }
-
-    private fun checkedSessions(sessions: MutableList<AddFacilitySessionData>) {
-        binding.noDataTV.isVisible(sessions.size == 0)
-        addFacilityAdapter.setAddSessions(sessions)
+        handleApiError(failure)
     }
 
     companion object {
