@@ -42,13 +42,13 @@ class WithdrawFragment : BaseFragment<FragmentWithdrawBinding>(FragmentWithdrawB
             doMB.setOnClickListener {
                 val nominal = editTextNumberReplace(nominalET)
                 val bankName = bankNameET.text.toString()
-                val bankNumber = bankNumberACTV.text.toString()
-                val ownerName = ownerNameACTV.text.toString()
+                val bankNumber = bankNumberET.text.toString()
+                val ownerName = ownerNameET.text.toString()
 
                 if (!requireContext().isValidate(nominalET)) return@setOnClickListener
                 if (!requireContext().isValidate(bankNameET)) return@setOnClickListener
-                if (!requireContext().isValidate(bankNumberACTV)) return@setOnClickListener
-                if (!requireContext().isValidate(ownerNameACTV)) return@setOnClickListener
+                if (!requireContext().isValidate(bankNumberET)) return@setOnClickListener
+                if (!requireContext().isValidate(ownerNameET)) return@setOnClickListener
 
                 val request = WithdrawRequest(bankName, nominal, bankNumber, ownerName)
                 withdrawViewModel.getWithdrawApiCall(request)
@@ -58,20 +58,20 @@ class WithdrawFragment : BaseFragment<FragmentWithdrawBinding>(FragmentWithdrawB
 
     override fun initObservers() {
         masterViewModel.getUserProfileApiCall()
-        masterViewModel.getUserProfile.observe(this, {
+        masterViewModel.getUserProfile.observe(this) {
             when (it) {
                 is DataResource.Loading -> showLoading(false)
                 is DataResource.Success -> showViewUser(it.value)
                 is DataResource.Failure -> showFailure(it)
             }
-        })
-        withdrawViewModel.getWithdraw.observe(this, {
+        }
+        withdrawViewModel.getWithdraw.observe(this) {
             when (it) {
                 is DataResource.Loading -> showLoading(true)
                 is DataResource.Success -> showViewWithdraw(it.value)
                 is DataResource.Failure -> showFailure(it)
             }
-        })
+        }
     }
 
     override fun showFailure(failure: DataResource.Failure) {
@@ -92,7 +92,13 @@ class WithdrawFragment : BaseFragment<FragmentWithdrawBinding>(FragmentWithdrawB
 
     private fun showViewUser(response: UserProfileResponse) {
         showLoading(false)
-        val balance = response.data?.saldo?.toInt() ?: 0
+        val userData = response.data
+        val balance = userData?.saldo?.toInt() ?: 0
+
+        binding.bankNameET.setTextEditable(userData?.bank ?: "")
+        binding.bankNumberET.setTextEditable(userData?.rekening ?: "")
+        binding.ownerNameET.setTextEditable(userData?.pemilikRekening ?: "")
+
         binding.balanceTV.text = formatRupiah(isStringNullZero(balance.toString()))
         val textWatcherEstimation = customWatcherReturn(object : UtilFunctions.ITextWatcher {
             override fun onTextChanged(charSequence: CharSequence) {

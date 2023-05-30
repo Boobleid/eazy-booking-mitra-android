@@ -15,5 +15,11 @@ data class UserProfileData(
     @SerializedName("username")
     var username: String? = null,
     @SerializedName("saldo")
-    var saldo: String? = null
+    var saldo: String? = null,
+    @SerializedName("bank")
+    var bank: String? = null,
+    @SerializedName("rekening")
+    var rekening: String? = null,
+    @SerializedName("pemilikik_rek")
+    var pemilikRekening: String? = null
 )
