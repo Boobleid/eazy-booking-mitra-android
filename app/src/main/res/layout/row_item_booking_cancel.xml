@@ -56,16 +56,16 @@
     <TextView
 
         android:id="@+id/invoiceTV"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="3dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="8dp"
         android:includeFontPadding="false"
         android:text="@string/dummy_invoice"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/size_14"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/newMessageTV"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/facilityNameTV" />
 
@@ -120,9 +120,28 @@
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/size_10"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/priceTV"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/locationNameTV" />
+
+    <TextView
+        android:id="@+id/newMessageTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_blue_r50"
+        android:backgroundTint="@color/teal_700"
+        android:gravity="center"
+        android:paddingStart="@dimen/space_16"
+        android:paddingTop="@dimen/space_8"
+        android:paddingEnd="@dimen/space_16"
+        android:paddingBottom="@dimen/space_8"
+        tools:text="3 Pesan Baru"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/size_10"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/statusTV" />
 
     <TextView
         android:id="@+id/priceTV"
@@ -140,9 +159,8 @@
         android:textSize="@dimen/size_14"
         android:textStyle="bold"
         android:drawablePadding="@dimen/space_8"
-        app:layout_constraintBottom_toBottomOf="@+id/requestDateTV"
+        app:layout_constraintBottom_toBottomOf="@+id/confirmDateTV"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/requestDateTV"
-        app:drawableEndCompat="@drawable/ic_baseline_arrow_forward_16"
-        app:layout_constraintVertical_bias="0.0"/>
+        app:drawableEndCompat="@drawable/ic_baseline_arrow_forward_16"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

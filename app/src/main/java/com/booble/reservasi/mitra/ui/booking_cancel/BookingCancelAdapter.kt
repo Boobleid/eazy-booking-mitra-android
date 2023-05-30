@@ -1,5 +1,6 @@
 package com.booble.reservasi.mitra.ui.booking_cancel
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +25,7 @@ class BookingCancelAdapter(
 
     inner class ViewHolder(private val binding: RowItemBookingCancelBinding) :
         RecyclerView.ViewHolder(binding.root) {
+        @SuppressLint("SetTextI18n")
         fun bindItem(item: BookingCancelItem, position: Int) {
             binding.apply {
                 val invoice = root.context.getString(R.string.invoice_, item.invoice)
@@ -58,6 +60,11 @@ class BookingCancelAdapter(
                 if (item.tglConfirmBatal?.isNotEmpty() == true) {
                     binding.confirmDateTV.visibility = View.VISIBLE
                 } else binding.confirmDateTV.visibility = View.GONE
+
+                if ((item.pesanBelumDibaca ?: 0) > 0) {
+                    binding.newMessageTV.text = "${item.pesanBelumDibaca} Pesan Baru"
+                    binding.newMessageTV.visibility = View.VISIBLE
+                } else binding.newMessageTV.visibility = View.GONE
 
                 if (position % 2 == 0) root.setBackgroundColor(
                     ContextCompat.getColor(
