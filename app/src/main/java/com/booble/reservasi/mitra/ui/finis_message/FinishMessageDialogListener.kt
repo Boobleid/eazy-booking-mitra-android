@@ -1,4 +1,4 @@
-package com.booble.reservasi.mitra.back_up.ui.finis_message
+package com.booble.reservasi.mitra.ui.finis_message
 
 /**
  * Created by rivaldy on 18/08/21

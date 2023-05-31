@@ -8,8 +8,8 @@ import android.os.Bundle
 import android.widget.AdapterView
 import androidx.activity.viewModels
 import com.booble.reservasi.mitra.R
-import com.booble.reservasi.mitra.back_up.ui.finis_message.FinishMessageDialogFragment
-import com.booble.reservasi.mitra.back_up.ui.finis_message.FinishMessageDialogListener
+import com.booble.reservasi.mitra.ui.finis_message.FinishMessageDialogFragment
+import com.booble.reservasi.mitra.ui.finis_message.FinishMessageDialogListener
 import com.booble.reservasi.mitra.back_up.ui.home.detail_order.DetailOrderActivity
 import com.booble.reservasi.mitra.base.BaseActivity
 import com.booble.reservasi.mitra.data.model.api.master.category.CategoryResponse

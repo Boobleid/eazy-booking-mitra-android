@@ -15,8 +15,8 @@ import com.booble.reservasi.mitra.data.model.offline.FinishMessageData
 import com.booble.reservasi.mitra.data.network.DataResource
 import com.booble.reservasi.mitra.databinding.ActivityCheckItemBinding
 import com.booble.reservasi.mitra.ui.MainActivity
-import com.booble.reservasi.mitra.back_up.ui.finis_message.FinishMessageDialogFragment
-import com.booble.reservasi.mitra.back_up.ui.finis_message.FinishMessageDialogListener
+import com.booble.reservasi.mitra.ui.finis_message.FinishMessageDialogFragment
+import com.booble.reservasi.mitra.ui.finis_message.FinishMessageDialogListener
 import com.booble.reservasi.mitra.back_up.ui.home.detail_order.DetailOrderActivity
 import com.booble.reservasi.mitra.back_up.ui.home.pop_item.PopUpItemFragment
 import com.booble.reservasi.mitra.back_up.ui.home.pop_item.PopUpItemListener

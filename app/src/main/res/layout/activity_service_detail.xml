@@ -129,31 +129,6 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.button.MaterialButton
-            android:visibility="gone"
-            android:id="@+id/addRoomMB"
-            style="@style/OutlinedButton.RounderBorder.IconNoPadding"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/space_55"
-            android:layout_centerInParent="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="8dp"
-            android:backgroundTint="@color/colorGreenLight"
-            android:fontFamily="@font/montserrat_bold"
-            android:letterSpacing="0"
-            android:text="@string/add_room"
-            android:textAllCaps="false"
-            android:textSize="@dimen/text_14"
-            app:icon="@drawable/ic_add"
-            app:iconGravity="textStart"
-            app:iconPadding="@dimen/space_8"
-            app:iconTint="@color/colorWhite"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/guideline"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:rippleColor="@color/colorWhite" />
-
-        <com.google.android.material.button.MaterialButton
             android:id="@+id/addFacilityMB"
             style="@style/OutlinedButton.RounderBorder.IconNoPadding"
             android:layout_width="0dp"

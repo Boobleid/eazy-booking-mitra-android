@@ -8,23 +8,17 @@ import android.graphics.drawable.ColorDrawable
 import android.view.View
 import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
-import androidx.fragment.app.viewModels
 import com.booble.reservasi.mitra.R
 import com.booble.reservasi.mitra.base.BaseActivity
-import com.booble.reservasi.mitra.data.model.api.booking_user.booking_detail.BookingDetailRequest
-import com.booble.reservasi.mitra.data.model.api.booking_user.booking_detail.BookingDetailResponse
+import com.booble.reservasi.mitra.data.model.api.DefaultLimitOffsetRequest
+import com.booble.reservasi.mitra.data.model.api.check_history.CheckOutHistoryResponse
 import com.booble.reservasi.mitra.data.network.DataResource
 import com.booble.reservasi.mitra.databinding.ActivityScannerBinding
 import com.booble.reservasi.mitra.databinding.DialogFailedScannerBinding
-import com.booble.reservasi.mitra.back_up.ui.home.detail_order.DetailOrderViewModel
-import com.booble.reservasi.mitra.back_up.ui.user_order.InfoUserOrderActivity
-import com.booble.reservasi.mitra.data.model.api.DefaultLimitOffsetRequest
-import com.booble.reservasi.mitra.data.model.api.check_history.CheckOutHistoryResponse
 import com.booble.reservasi.mitra.ui.booking_history.BookingHistoryViewModel
 import com.booble.reservasi.mitra.ui.booking_history.detail.BookingHistoryDetailActivity
 import com.booble.reservasi.mitra.utils.UtilConstants
 import com.booble.reservasi.mitra.utils.UtilConstants.CODE_FIRST_INV
-import com.booble.reservasi.mitra.utils.UtilConstants.STATUS_SUCCESS
 import com.booble.reservasi.mitra.utils.UtilExceptions.handleApiError
 import com.booble.reservasi.mitra.utils.UtilExtensions.myToast
 import com.booble.reservasi.mitra.utils.UtilExtensions.openActivity
@@ -114,15 +108,20 @@ class ScannerActivity : BaseActivity<ActivityScannerBinding>(), ZXingScannerView
 
     private fun doScanning() {
         val idBooking = binding.idBookingET.text.toString().replace(CODE_FIRST_INV, "")
-        if (idBooking.isEmpty()){
+        if (idBooking.isEmpty()) {
             myToast(getString(R.string.required_scan_qr))
             return
         }
-        val request = DefaultLimitOffsetRequest(UtilConstants.LIMIT_VALUE, UtilConstants.OFFSET_VALUE, idBooking)
+        val request = DefaultLimitOffsetRequest(
+            UtilConstants.LIMIT_VALUE,
+            UtilConstants.OFFSET_VALUE,
+            idBooking
+        )
         historyViewModel.getCheckOutHistoryApiCall(request)
     }
 
-    private fun hasFlash() = applicationContext.packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)
+    private fun hasFlash() =
+        applicationContext.packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)
 
     private fun switchFlashlight() {
         if (isLight) {
@@ -138,8 +137,16 @@ class ScannerActivity : BaseActivity<ActivityScannerBinding>(), ZXingScannerView
     }
 
     private fun doRequestPermission() {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), MY_PERMISSIONS_REQUEST)
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.CAMERA
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.CAMERA),
+                MY_PERMISSIONS_REQUEST
+            )
         }
     }
 

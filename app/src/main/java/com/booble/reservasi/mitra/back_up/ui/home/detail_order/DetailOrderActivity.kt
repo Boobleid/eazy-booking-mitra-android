@@ -14,8 +14,8 @@ import com.booble.reservasi.mitra.data.model.offline.FinishMessageData
 import com.booble.reservasi.mitra.data.network.DataResource
 import com.booble.reservasi.mitra.databinding.ActivityDetailOrderBinding
 import com.booble.reservasi.mitra.ui.MainActivity
-import com.booble.reservasi.mitra.back_up.ui.finis_message.FinishMessageDialogFragment
-import com.booble.reservasi.mitra.back_up.ui.finis_message.FinishMessageDialogListener
+import com.booble.reservasi.mitra.ui.finis_message.FinishMessageDialogFragment
+import com.booble.reservasi.mitra.ui.finis_message.FinishMessageDialogListener
 import com.booble.reservasi.mitra.back_up.ui.home.check_item.CheckItemActivity
 import com.booble.reservasi.mitra.utils.UtilConstants.STATUS_BOOKING
 import com.booble.reservasi.mitra.utils.UtilConstants.STATUS_CHECK_IN
@@ -44,20 +44,20 @@ class DetailOrderActivity : BaseActivity<ActivityDetailOrderBinding>(), FinishMe
     }
 
     override fun initObservers() {
-        detailOrderViewModel.getBookingUserDetail.observe(this, {
+        detailOrderViewModel.getBookingUserDetail.observe(this) {
             when (it) {
                 is DataResource.Loading -> showLoading(true)
                 is DataResource.Success -> showViewBookingDetail(it.value)
                 is DataResource.Failure -> showFailure(it)
             }
-        })
-        detailOrderViewModel.verificationCheckIn.observe(this, {
+        }
+        detailOrderViewModel.verificationCheckIn.observe(this) {
             when (it) {
                 is DataResource.Loading -> showLoading(true)
                 is DataResource.Success -> showViewCheckIn(it.value)
                 is DataResource.Failure -> showFailure(it)
             }
-        })
+        }
     }
 
     private fun showViewCheckIn(response: VerificationCheckInResponse) {

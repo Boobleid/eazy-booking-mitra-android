@@ -65,7 +65,7 @@
         <entry key="app/src/main/res/layout/activity_maps.xml" value="0.2229275443427701" />
         <entry key="app/src/main/res/layout/activity_room_detail.xml" value="0.24107142857142858" />
         <entry key="app/src/main/res/layout/activity_scanner.xml" value="0.2578125" />
-        <entry key="app/src/main/res/layout/activity_service_detail.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_service_detail.xml" value="0.16509063720703127" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.15545196533203126" />
         <entry key="app/src/main/res/layout/activity_user_setting.xml" value="0.22338338355080925" />
         <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.2" />
@@ -83,8 +83,10 @@
         <entry key="app/src/main/res/layout/fragment_check_out_history.xml" value="0.27053266034462936" />
         <entry key="app/src/main/res/layout/fragment_confirm_booking_cancel_dialog.xml" value="0.2295552093710675" />
         <entry key="app/src/main/res/layout/fragment_finish_message_dialog.xml" value="0.234375" />
+        <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.1203125" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_pop_up_item.xml" value="0.234375" />
+        <entry key="app/src/main/res/layout/fragment_slideshow.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/fragment_withdraw.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_container_checkout.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/item_container_room.xml" value="0.2578125" />
@@ -110,6 +112,8 @@
         <entry key="app/src/main/res/layout/row_item_session_info.xml" value="0.3469589233398437" />
         <entry key="app/src/main/res/layout/row_item_user_order.xml" value="0.234375" />
         <entry key="app/src/main/res/layout/row_item_your_service.xml" value="0.5" />
+        <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.2578125" />
+        <entry key="app/src/main/res/menu/main.xml" value="0.1203125" />
       </map>
     </option>
   </component>

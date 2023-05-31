@@ -1,4 +1,4 @@
-package com.booble.reservasi.mitra.back_up.ui.finis_message
+package com.booble.reservasi.mitra.ui.finis_message
 
 import android.content.DialogInterface
 import android.view.LayoutInflater

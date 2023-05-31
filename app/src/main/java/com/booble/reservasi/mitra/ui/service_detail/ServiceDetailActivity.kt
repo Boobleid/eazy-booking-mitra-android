@@ -9,7 +9,6 @@ import com.booble.reservasi.mitra.data.model.api.room_facility.status_display.St
 import com.booble.reservasi.mitra.data.model.api.service.ServiceData
 import com.booble.reservasi.mitra.data.model.api.service.detail_facility.DetailFacilityRequest
 import com.booble.reservasi.mitra.data.model.api.service.detail_facility.DetailFacilityResponse
-import com.booble.reservasi.mitra.data.model.api.service.detail_room.DetailRoomRequest
 import com.booble.reservasi.mitra.data.model.api.service.detail_room.DetailRoomResponse
 import com.booble.reservasi.mitra.data.network.DataResource
 import com.booble.reservasi.mitra.databinding.ActivityServiceDetailBinding
@@ -17,11 +16,8 @@ import com.booble.reservasi.mitra.ui.service_detail.add_facility.AddFacilityActi
 import com.booble.reservasi.mitra.ui.service_detail.add_room.AddRoomActivity
 import com.booble.reservasi.mitra.ui.service_detail.detail_facility.FacilityDetailActivity
 import com.booble.reservasi.mitra.ui.service_detail.detail_facility.FacilityDetailViewModel
-import com.booble.reservasi.mitra.ui.service_detail.detail_room.RoomDetailActivity
-import com.booble.reservasi.mitra.ui.service_detail.detail_room.RoomDetailViewModel
 import com.booble.reservasi.mitra.utils.UtilConstants.LIMIT_VALUE
 import com.booble.reservasi.mitra.utils.UtilConstants.OFFSET_VALUE
-import com.booble.reservasi.mitra.utils.UtilConstants.TYPE_FACILITY
 import com.booble.reservasi.mitra.utils.UtilExceptions.handleApiError
 import com.booble.reservasi.mitra.utils.UtilExtensions.isVisible
 import com.booble.reservasi.mitra.utils.UtilExtensions.openActivity
@@ -31,11 +27,14 @@ import dagger.hilt.android.AndroidEntryPoint
 class ServiceDetailActivity : BaseActivity<ActivityServiceDetailBinding>() {
     private val serviceDetailViewModel by viewModels<ServiceDetailViewModel>()
     private val facilityDetailViewModel by viewModels<FacilityDetailViewModel>()
-    private val roomDetailViewModel by viewModels<RoomDetailViewModel>()
     private var extraServiceData: ServiceData? = null
 
     private val serviceDetailAdapter: ServiceDetailAdapter by lazy {
-        ServiceDetailAdapter(this, { item -> detailClick(item) }, { item -> changeClick(item) }, { item, status -> switchDisplayClick(item, status) })
+        ServiceDetailAdapter(
+            this,
+            { item -> detailClick(item) },
+            { item -> changeClick(item) },
+            { item, status -> switchDisplayClick(item, status) })
     }
 
     override fun getViewBinding() = ActivityServiceDetailBinding.inflate(layoutInflater)
@@ -49,11 +48,6 @@ class ServiceDetailActivity : BaseActivity<ActivityServiceDetailBinding>() {
     }
 
     private fun initClick() {
-        binding.addRoomMB.setOnClickListener {
-            openActivity(AddRoomActivity::class.java) {
-                putParcelable(EXTRA_SERVICE_DATA, extraServiceData)
-            }
-        }
         binding.addFacilityMB.setOnClickListener {
             openActivity(AddFacilityActivity::class.java) {
                 putParcelable(EXTRA_SERVICE_DATA, extraServiceData)
@@ -66,14 +60,6 @@ class ServiceDetailActivity : BaseActivity<ActivityServiceDetailBinding>() {
             when (it) {
                 is DataResource.Loading -> showLoading(true)
                 is DataResource.Success -> showViewService(it.value)
-                is DataResource.Failure -> showFailure(it)
-            }
-        }
-
-        roomDetailViewModel.getDetailRoom.observe(this) {
-            when (it) {
-                is DataResource.Loading -> showLoading(true)
-                is DataResource.Success -> showViewDetailRoom(it.value)
                 is DataResource.Failure -> showFailure(it)
             }
         }
@@ -112,7 +98,8 @@ class ServiceDetailActivity : BaseActivity<ActivityServiceDetailBinding>() {
         binding.nameTV.text = extraServiceData?.nama
         binding.addressTV.text = extraServiceData?.alamat
 
-        val request = RoomFacilityRequest(extraServiceData?.id.toString(), LIMIT_VALUE, OFFSET_VALUE)
+        val request =
+            RoomFacilityRequest(extraServiceData?.id.toString(), LIMIT_VALUE, OFFSET_VALUE)
         serviceDetailViewModel.getRoomFacilityApiCall(request)
     }
 
@@ -128,27 +115,23 @@ class ServiceDetailActivity : BaseActivity<ActivityServiceDetailBinding>() {
     }
 
     private fun detailClick(item: RoomFacilityData) {
-        if ((item.kategori ?: "") == TYPE_FACILITY) {
-            openActivity(FacilityDetailActivity::class.java) {
-                putParcelable(EXTRA_ROOM_FACILITY, item)
-            }
-        } else {
-            openActivity(RoomDetailActivity::class.java) {
-                putParcelable(EXTRA_ROOM_FACILITY, item)
-            }
+        openActivity(FacilityDetailActivity::class.java) {
+            putParcelable(EXTRA_ROOM_FACILITY, item)
         }
     }
 
     private fun changeClick(item: RoomFacilityData) {
-        if ((item.kategori ?: "") == TYPE_FACILITY) {
-            facilityDetailViewModel.getDetailFacility(DetailFacilityRequest(item.id.toString()))
-        } else {
-            roomDetailViewModel.getDetailRoomApiCall(DetailRoomRequest(item.id.toString()))
-        }
+        facilityDetailViewModel.getDetailFacility(DetailFacilityRequest(item.id.toString()))
     }
 
     private fun switchDisplayClick(item: RoomFacilityData, status: String) {
-        serviceDetailViewModel.setStatusDisplayApiCall(StatusDisplayRoomFacilityRequest(item.id.toString(), item.kategori, status))
+        serviceDetailViewModel.setStatusDisplayApiCall(
+            StatusDisplayRoomFacilityRequest(
+                item.id.toString(),
+                item.kategori,
+                status
+            )
+        )
     }
 
     companion object {
