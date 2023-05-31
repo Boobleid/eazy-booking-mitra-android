@@ -197,6 +197,10 @@ class DataRepository @Inject constructor(
         appDataManager.confirmBookingCancelApiCall(getAccessToken(), request)
     }
 
+    suspend fun numberBookingCancelApiCall() = safeApiCall {
+        appDataManager.numberBookingCancelApiCall(getAccessToken())
+    }
+
     suspend fun bookingCancelConversationApiCall(request: BookingCancelRequest) = safeApiCall {
         appDataManager.bookingCancelConversationApiCall(getAccessToken(), request)
     }

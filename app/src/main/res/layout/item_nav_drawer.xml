@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -63,7 +64,7 @@
             android:textSize="14sp" />
     </RelativeLayout>
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/menuCancelBookingRL"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -78,21 +79,47 @@
             android:layout_height="wrap_content"
             android:contentDescription="@string/app_name"
             android:src="@drawable/ic_free_cancellation"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:tint="@color/colorAccent" />
 
         <TextView
             android:id="@+id/cancelTV"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
             android:layout_marginStart="13dp"
-            android:layout_toEndOf="@id/ivCancel"
             android:fontFamily="@font/montserrat_regular"
-            android:includeFontPadding="false"
             android:text="@string/permintaan_pembatalan"
-            android:textSize="14sp" />
-    </RelativeLayout>
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivCancel"
+            app:layout_constraintStart_toEndOf="@+id/ivCancel"
+            app:layout_constraintTop_toTopOf="@+id/ivCancel" />
+
+        <TextView
+            android:id="@+id/numberCancelTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_navy_dark_r6"
+            android:backgroundTint="@color/colorOrange"
+            android:gravity="center"
+            android:paddingStart="@dimen/space_8"
+            android:paddingTop="@dimen/space_4"
+            android:paddingEnd="@dimen/space_8"
+            android:paddingBottom="@dimen/space_4"
+            tools:text="4"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/size_10"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/ivCancel"
+            app:layout_constraintStart_toEndOf="@+id/cancelTV"
+            app:layout_constraintTop_toTopOf="@+id/ivCancel"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <RelativeLayout
         android:id="@+id/menuBookingHistoryBalanceRL"
@@ -124,12 +151,12 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:visibility="gone"
         android:id="@+id/menuRegisterServiceRL"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_ripple_square_navy_orange"
-        android:padding="@dimen/dimen_12">
+        android:padding="@dimen/dimen_12"
+        android:visibility="gone">
 
         <ImageView
             android:id="@+id/registerServiceIV"

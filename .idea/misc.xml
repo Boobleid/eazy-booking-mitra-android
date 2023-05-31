@@ -61,7 +61,7 @@
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.11666666666666667" />
         <entry key="app/src/main/res/layout/activity_info_user_order.xml" value="0.21388888888888888" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.23522227094987774" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.45009002685546873" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_maps.xml" value="0.2229275443427701" />
         <entry key="app/src/main/res/layout/activity_room_detail.xml" value="0.24107142857142858" />
         <entry key="app/src/main/res/layout/activity_scanner.xml" value="0.2578125" />
@@ -85,17 +85,17 @@
         <entry key="app/src/main/res/layout/fragment_finish_message_dialog.xml" value="0.234375" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_pop_up_item.xml" value="0.234375" />
-        <entry key="app/src/main/res/layout/fragment_withdraw.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_withdraw.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_container_checkout.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/item_container_room.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/item_conversation_left.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/item_conversation_right.xml" value="0.477691650390625" />
-        <entry key="app/src/main/res/layout/item_nav_drawer.xml" value="0.2547419159696372" />
+        <entry key="app/src/main/res/layout/item_nav_drawer.xml" value="0.24353740603424778" />
         <entry key="app/src/main/res/layout/layout_spinner_item.xml" value="0.2212962962962963" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.2444742568220575" />
         <entry key="app/src/main/res/layout/row_item_add_facility_session.xml" value="0.25" />
         <entry key="app/src/main/res/layout/row_item_balance_history.xml" value="0.3074792243767313" />
-        <entry key="app/src/main/res/layout/row_item_booking_cancel.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/row_item_booking_cancel.xml" value="0.20724029541015623" />
         <entry key="app/src/main/res/layout/row_item_cancel_booking.xml" value="0.3963363647460938" />
         <entry key="app/src/main/res/layout/row_item_check_box.xml" value="0.3422265973998149" />
         <entry key="app/src/main/res/layout/row_item_check_out_history.xml" value="0.43561336503280457" />

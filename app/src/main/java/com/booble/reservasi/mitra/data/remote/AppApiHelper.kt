@@ -6,7 +6,10 @@ import com.booble.reservasi.mitra.data.model.api.add_member.AddMemberServiceRequ
 import com.booble.reservasi.mitra.data.model.api.add_member.DeleteMemberServiceRequest
 import com.booble.reservasi.mitra.data.model.api.add_member.MemberServiceResponse
 import com.booble.reservasi.mitra.data.model.api.balance_history.BalanceHistoryResponse
-import com.booble.reservasi.mitra.data.model.api.booking_cancel.*
+import com.booble.reservasi.mitra.data.model.api.booking_cancel.BookingCancelListRequest
+import com.booble.reservasi.mitra.data.model.api.booking_cancel.BookingCancelListResponse
+import com.booble.reservasi.mitra.data.model.api.booking_cancel.BookingCancelRequest
+import com.booble.reservasi.mitra.data.model.api.booking_cancel.SendMessageConversationRequest
 import com.booble.reservasi.mitra.data.model.api.booking_user.BookingUserRequest
 import com.booble.reservasi.mitra.data.model.api.booking_user.BookingUserResponse
 import com.booble.reservasi.mitra.data.model.api.booking_user.booking_detail.BookingDetailRequest
@@ -69,48 +72,83 @@ class AppApiHelper @Inject constructor(
 
     override suspend fun getMoviesApiCall() = apiService.getMovies()
     override suspend fun loginManualApiCall(request: LoginRequest) = apiService.loginManual(request)
-    override suspend fun setForgotPasswordApiCall(request: ForgotPasswordRequest) = apiService.setForgotPassword(request)
-    override suspend fun getBookingUserApiCall(token: String, request: BookingUserRequest): BookingUserResponse {
+    override suspend fun setForgotPasswordApiCall(request: ForgotPasswordRequest) =
+        apiService.setForgotPassword(request)
+
+    override suspend fun getBookingUserApiCall(
+        token: String,
+        request: BookingUserRequest
+    ): BookingUserResponse {
         return apiService.getBookingUser(token, request)
     }
 
-    override suspend fun getBookingUserDetailApiCall(token: String, request: BookingDetailRequest): BookingDetailResponse {
+    override suspend fun getBookingUserDetailApiCall(
+        token: String,
+        request: BookingDetailRequest
+    ): BookingDetailResponse {
         return apiService.getBookingUserDetail(token, request)
     }
 
-    override suspend fun verificationCheckInApiCall(token: String, request: VerificationCheckInRequest): VerificationCheckInResponse {
+    override suspend fun verificationCheckInApiCall(
+        token: String,
+        request: VerificationCheckInRequest
+    ): VerificationCheckInResponse {
         return apiService.verificationCheckIn(token, request)
     }
 
-    override suspend fun verificationCheckOutApiCall(token: String, request: VerificationCheckInRequest): VerificationCheckInResponse {
+    override suspend fun verificationCheckOutApiCall(
+        token: String,
+        request: VerificationCheckInRequest
+    ): VerificationCheckInResponse {
         return apiService.verificationCheckOut(token, request)
     }
 
-    override suspend fun verificationItemConditionApiCall(token: String, request: ItemConditionRequest): ItemConditionResponse {
+    override suspend fun verificationItemConditionApiCall(
+        token: String,
+        request: ItemConditionRequest
+    ): ItemConditionResponse {
         return apiService.verificationItemCondition(token, request)
     }
 
-    override suspend fun getItemBookingApiCall(token: String, request: BookingItemRequest): BookingItemResponse {
+    override suspend fun getItemBookingApiCall(
+        token: String,
+        request: BookingItemRequest
+    ): BookingItemResponse {
         return apiService.getItemBooking(token, request)
     }
 
-    override suspend fun getCheckOutHistoryApiCall(token: String, request: DefaultLimitOffsetRequest): CheckOutHistoryResponse {
+    override suspend fun getCheckOutHistoryApiCall(
+        token: String,
+        request: DefaultLimitOffsetRequest
+    ): CheckOutHistoryResponse {
         return apiService.getCheckOutHistory(token, request)
     }
 
-    override suspend fun getDetailCheckOutHistoryApiCall(token: String, request: DetailCheckOutHistoryRequest): DetailCheckOutHistoryResponse {
+    override suspend fun getDetailCheckOutHistoryApiCall(
+        token: String,
+        request: DetailCheckOutHistoryRequest
+    ): DetailCheckOutHistoryResponse {
         return apiService.getDetailCheckOutHistory(token, request)
     }
 
-    override suspend fun getUserProfileApiCall(token: String, request: UserProfileRequest): UserProfileResponse {
+    override suspend fun getUserProfileApiCall(
+        token: String,
+        request: UserProfileRequest
+    ): UserProfileResponse {
         return apiService.getUserProfile(token, request)
     }
 
-    override suspend fun setUpdateProfileApiCall(token: String, request: UpdateProfileRequest): UpdateProfileResponse {
+    override suspend fun setUpdateProfileApiCall(
+        token: String,
+        request: UpdateProfileRequest
+    ): UpdateProfileResponse {
         return apiService.setUpdateProfile(token, request)
     }
 
-    override suspend fun getServiceApiCall(token: String, request: ServiceRequest): ServiceResponse {
+    override suspend fun getServiceApiCall(
+        token: String,
+        request: ServiceRequest
+    ): ServiceResponse {
         return apiService.getService(token, request)
     }
 
@@ -122,11 +160,17 @@ class AppApiHelper @Inject constructor(
         return apiService.getServiceCategory(token)
     }
 
-    override suspend fun addServiceApiCall(token: String, request: AddServiceRequest): AddServiceResponse {
+    override suspend fun addServiceApiCall(
+        token: String,
+        request: AddServiceRequest
+    ): AddServiceResponse {
         return apiService.addService(token, request)
     }
 
-    override suspend fun addFurnitureApiCall(token: String, request: AddFurnitureRequest): AddFurnitureResponse {
+    override suspend fun addFurnitureApiCall(
+        token: String,
+        request: AddFurnitureRequest
+    ): AddFurnitureResponse {
         return apiService.addFurniture(token, request)
     }
 
@@ -141,7 +185,10 @@ class AppApiHelper @Inject constructor(
         return apiService.facilityList(token, request)
     }
 
-    override suspend fun addFacilityApiCall(token: String, request: AddFacilityRequest): AddFacilityResponse {
+    override suspend fun addFacilityApiCall(
+        token: String,
+        request: AddFacilityRequest
+    ): AddFacilityResponse {
         return apiService.addFacility(token, request)
     }
 
@@ -157,27 +204,45 @@ class AppApiHelper @Inject constructor(
         return apiService.getFacilityRoom(token)
     }
 
-    override suspend fun getDetailRoomApiCall(token: String, request: DetailRoomRequest): DetailRoomResponse {
+    override suspend fun getDetailRoomApiCall(
+        token: String,
+        request: DetailRoomRequest
+    ): DetailRoomResponse {
         return apiService.getDetailRoom(token, request)
     }
 
-    override suspend fun getDetailFacilityApiCall(token: String, request: DetailFacilityRequest): DetailFacilityResponse {
+    override suspend fun getDetailFacilityApiCall(
+        token: String,
+        request: DetailFacilityRequest
+    ): DetailFacilityResponse {
         return apiService.getDetailFacility(token, request)
     }
 
-    override suspend fun getRoomFacilityApiCall(token: String, request: RoomFacilityRequest): RoomFacilityResponse {
+    override suspend fun getRoomFacilityApiCall(
+        token: String,
+        request: RoomFacilityRequest
+    ): RoomFacilityResponse {
         return apiService.getRoomFacility(token, request)
     }
 
-    override suspend fun setStatusDisplayApiCall(token: String, request: StatusDisplayRoomFacilityRequest): DefaultApiResponse {
+    override suspend fun setStatusDisplayApiCall(
+        token: String,
+        request: StatusDisplayRoomFacilityRequest
+    ): DefaultApiResponse {
         return apiService.setUpdateStatusDisplay(token, request)
     }
 
-    override suspend fun addMemberServiceApiCall(token: String, request: AddMemberServiceRequest): DefaultApiResponse {
+    override suspend fun addMemberServiceApiCall(
+        token: String,
+        request: AddMemberServiceRequest
+    ): DefaultApiResponse {
         return apiService.addMemberService(token, request)
     }
 
-    override suspend fun getWithdrawApiCall(token: String, request: WithdrawRequest): DefaultApiResponse {
+    override suspend fun getWithdrawApiCall(
+        token: String,
+        request: WithdrawRequest
+    ): DefaultApiResponse {
         return apiService.getWithdraw(token, request)
     }
 
@@ -185,7 +250,10 @@ class AppApiHelper @Inject constructor(
         return apiService.getMemberService(token)
     }
 
-    override suspend fun deleteMemberServiceApiCall(token: String, request: DeleteMemberServiceRequest): DefaultApiResponse {
+    override suspend fun deleteMemberServiceApiCall(
+        token: String,
+        request: DeleteMemberServiceRequest
+    ): DefaultApiResponse {
         return apiService.deleteMemberService(token, request)
     }
 
@@ -201,7 +269,10 @@ class AppApiHelper @Inject constructor(
         return apiService.loadListContact(token)
     }
 
-    override suspend fun loadBookingDate(token: String, request: BookingDateCalendarRequest): BookingDateCalendarResponse {
+    override suspend fun loadBookingDate(
+        token: String,
+        request: BookingDateCalendarRequest
+    ): BookingDateCalendarResponse {
         return apiService.loadBookingDate(token, request)
     }
 
@@ -219,12 +290,13 @@ class AppApiHelper @Inject constructor(
         return apiService.confirmBookingCancel(token, request)
     }
 
+    override suspend fun numberBookingCancelApiCall(token: String) =
+        apiService.numberBookingCancel(token)
+
     override suspend fun bookingCancelConversationApiCall(
         token: String,
         request: BookingCancelRequest
-    ): CancelConversationResponse {
-        return apiService.bookingCancelConversation(token, request)
-    }
+    ) = apiService.bookingCancelConversation(token, request)
 
     override suspend fun readMessageConversationApiCall(
         token: String,

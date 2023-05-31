@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.booble.reservasi.mitra.data.DataRepository
 import com.booble.reservasi.mitra.data.model.api.balance_history.BalanceHistoryResponse
+import com.booble.reservasi.mitra.data.model.api.booking_cancel.NumberBookingCancelResponse
 import com.booble.reservasi.mitra.data.model.api.help.HelpRequest
 import com.booble.reservasi.mitra.data.model.api.help.HelpResponse
 import com.booble.reservasi.mitra.data.model.api.help.contact.ContactResponse
@@ -69,6 +70,13 @@ class MasterViewModel @Inject constructor(
     fun loadListContactApiCall() = viewModelScope.launch {
         _loadListContact.value = DataResource.Loading
         _loadListContact.value = dataRepository.loadListContactApiCall()
+    }
+
+    private val _numberBookingCancel: MutableLiveData<DataResource<NumberBookingCancelResponse>> = MutableLiveData()
+    val numberBookingCancel = _numberBookingCancel
+    fun numberBookingCancelApiCall() = viewModelScope.launch {
+        _numberBookingCancel.value = DataResource.Loading
+        _numberBookingCancel.value = dataRepository.numberBookingCancelApiCall()
     }
 
     fun getUrlAPI() = dataRepository.getUrlAPI()

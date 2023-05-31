@@ -3,6 +3,7 @@ package com.booble.reservasi.mitra.ui
 import android.content.pm.PackageManager
 import android.os.Handler
 import android.os.Looper
+import android.view.View
 import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
 import androidx.core.view.GravityCompat
@@ -13,6 +14,7 @@ import com.booble.reservasi.mitra.R
 import com.booble.reservasi.mitra.ui.scanner.ScannerActivity
 import com.booble.reservasi.mitra.base.BaseActivity
 import com.booble.reservasi.mitra.data.model.api.ErrorResponse
+import com.booble.reservasi.mitra.data.model.api.booking_cancel.NumberBookingCancelResponse
 import com.booble.reservasi.mitra.data.model.api.user_profile.UserProfileResponse
 import com.booble.reservasi.mitra.data.network.DataResource
 import com.booble.reservasi.mitra.databinding.ActivityMainBinding
@@ -65,6 +67,15 @@ class MainActivity : MainListener, BaseActivity<ActivityMainBinding>() {
             when (it) {
                 is DataResource.Loading -> showLoading(false)
                 is DataResource.Success -> showViewUser(it.value)
+                is DataResource.Failure -> showFailure(it)
+            }
+        }
+
+        masterViewModel.numberBookingCancelApiCall()
+        masterViewModel.numberBookingCancel.observe(this) {
+            when (it) {
+                is DataResource.Loading -> {}
+                is DataResource.Success -> checkNumberBookingCancel(it.value)
                 is DataResource.Failure -> showFailure(it)
             }
         }
@@ -159,19 +170,6 @@ class MainActivity : MainListener, BaseActivity<ActivityMainBinding>() {
         }
     }
 
-    private fun commitFragment(fragment: Fragment, tag: String) {
-        binding.drawerLayout.closeDrawer(GravityCompat.START)
-        supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment, fragment, tag)
-            .commit()
-    }
-
-    private fun showViewUser(response: UserProfileResponse) {
-        showLoading(false)
-        binding.navHeader.userNameTV.text = response.data?.firstName
-        binding.navHeader.statusTV.text =
-            getString(R.string.my_balance_, formatRupiah(isStringNullZero(response.data?.saldo)))
-    }
-
     private fun initClick() {
         binding.itemNav.menuSettingRL.setOnClickListener { openActivity(UserSettingActivity::class.java) }
         binding.logoutMB.setOnClickListener {
@@ -195,6 +193,29 @@ class MainActivity : MainListener, BaseActivity<ActivityMainBinding>() {
                     override fun onNegativeButtonClick() {
                     }
                 })
+        }
+    }
+
+    private fun commitFragment(fragment: Fragment, tag: String) {
+        binding.drawerLayout.closeDrawer(GravityCompat.START)
+        supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment, fragment, tag)
+            .commit()
+    }
+
+    private fun showViewUser(response: UserProfileResponse) {
+        showLoading(false)
+        binding.navHeader.userNameTV.text = response.data?.firstName
+        binding.navHeader.statusTV.text =
+            getString(R.string.my_balance_, formatRupiah(isStringNullZero(response.data?.saldo)))
+    }
+
+    private fun checkNumberBookingCancel(response: NumberBookingCancelResponse) {
+        if (response.status == true) {
+            val number = response.number ?: 0
+            if (number > 0) {
+                binding.itemNav.numberCancelTV.visibility = View.VISIBLE
+                binding.itemNav.numberCancelTV.text = number.toString()
+            }
         }
     }
 

@@ -107,6 +107,7 @@ interface ApiHelper {
 
     suspend fun bookingCancelListApiCall(token: String, request: BookingCancelListRequest): BookingCancelListResponse
     suspend fun confirmBookingCancelApiCall(token: String, request: BookingCancelRequest): DefaultApiResponse
+    suspend fun numberBookingCancelApiCall(token: String): NumberBookingCancelResponse
     suspend fun bookingCancelConversationApiCall(token: String, request: BookingCancelRequest): CancelConversationResponse
     suspend fun readMessageConversationApiCall(token: String, request: BookingCancelRequest): DefaultApiResponse
     suspend fun sendMessageConversationApiCall(token: String, request: SendMessageConversationRequest): DefaultApiResponse

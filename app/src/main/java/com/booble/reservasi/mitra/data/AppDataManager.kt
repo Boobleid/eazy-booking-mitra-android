@@ -11,6 +11,7 @@ import com.booble.reservasi.mitra.data.model.api.add_member.MemberServiceRespons
 import com.booble.reservasi.mitra.data.model.api.balance_history.BalanceHistoryResponse
 import com.booble.reservasi.mitra.data.model.api.booking_cancel.BookingCancelListRequest
 import com.booble.reservasi.mitra.data.model.api.booking_cancel.BookingCancelRequest
+import com.booble.reservasi.mitra.data.model.api.booking_cancel.NumberBookingCancelResponse
 import com.booble.reservasi.mitra.data.model.api.booking_cancel.SendMessageConversationRequest
 import com.booble.reservasi.mitra.data.model.api.booking_user.BookingUserRequest
 import com.booble.reservasi.mitra.data.model.api.booking_user.BookingUserResponse
@@ -220,6 +221,7 @@ class AppDataManager @Inject constructor(
 
     override suspend fun bookingCancelListApiCall(token: String, request: BookingCancelListRequest) = api.bookingCancelListApiCall(token, request)
     override suspend fun confirmBookingCancelApiCall(token: String, request: BookingCancelRequest) = api.confirmBookingCancelApiCall(token, request)
+    override suspend fun numberBookingCancelApiCall(token: String) = api.numberBookingCancelApiCall(token)
     override suspend fun bookingCancelConversationApiCall(token: String, request: BookingCancelRequest) = api.bookingCancelConversationApiCall(token, request)
     override suspend fun readMessageConversationApiCall(token: String, request: BookingCancelRequest) = api.readMessageConversationApiCall(token, request)
     override suspend fun sendMessageConversationApiCall(token: String, request: SendMessageConversationRequest) = api.sendMessageConversationApiCall(token, request)

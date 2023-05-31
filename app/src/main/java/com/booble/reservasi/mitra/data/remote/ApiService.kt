@@ -186,6 +186,9 @@ interface ApiService {
     @POST(PATH_CONFIRM_CANCEL_BOOKING)
     suspend fun confirmBookingCancel(@Header(HEADER_X_ACCESS_TOKEN) token: String, @Body request: BookingCancelRequest): DefaultApiResponse
 
+    @GET(PATH_NUMBER_BOOKING_CANCEL)
+    suspend fun numberBookingCancel(@Header(HEADER_X_ACCESS_TOKEN) token: String): NumberBookingCancelResponse
+
     @POST(PATH_CONVERSATION_CANCEL_BOOKING)
     suspend fun bookingCancelConversation(@Header(HEADER_X_ACCESS_TOKEN) token: String, @Body request: BookingCancelRequest): CancelConversationResponse
 
@@ -239,6 +242,7 @@ interface ApiService {
 
         const val PATH_CANCEL_BOOKING_LIST = "/list/riwayat_pembatalan"
         const val PATH_CONFIRM_CANCEL_BOOKING = "/simpan/konfir_pembatalan"
+        const val PATH_NUMBER_BOOKING_CANCEL = "/list/permintaan_pembatalan"
         const val PATH_CONVERSATION_CANCEL_BOOKING = "/list/percakapan_pembatalan"
         const val PATH_READ_MESSAGE_CONVERSATION = "/simpan/update_status_baca_percakapan"
         const val PATH_SEND_MESSAGE_CONVERSATION = "/simpan/kirim_pesan"

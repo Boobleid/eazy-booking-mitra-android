@@ -30,11 +30,6 @@ class WithdrawFragment : BaseFragment<FragmentWithdrawBinding>(FragmentWithdrawB
 
     override fun initView() {
         initClick()
-        initListener()
-    }
-
-    private fun initListener() {
-        //binding.nominalET.addTextChangedListener(NumberTextWatcher(binding.nominalET))
     }
 
     private fun initClick() {
