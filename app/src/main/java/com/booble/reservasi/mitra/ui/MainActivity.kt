@@ -224,8 +224,9 @@ class MainActivity : MainListener, BaseActivity<ActivityMainBinding>() {
         initObservers()
     }
 
-    override fun changeFragment() {
-        commitFragment(HomeFragment(), HomeFragment().tag.toString())
+    override fun changeFragment(tag: String) {
+        if (tag == WithdrawFragment().tag.toString()) commitFragment(BalanceHistoryFragment(), BalanceHistoryFragment().tag.toString())
+        else commitFragment(HomeFragment(), HomeFragment().tag.toString())
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {

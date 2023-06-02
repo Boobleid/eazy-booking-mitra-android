@@ -9,7 +9,6 @@ import com.booble.reservasi.mitra.data.model.api.service.add_facility.AddFacilit
 import com.booble.reservasi.mitra.databinding.RowItemAddFacilitySessionBinding
 import com.booble.reservasi.mitra.utils.UtilExtensions.setTextEditable
 import com.booble.reservasi.mitra.utils.UtilFunctions
-import com.booble.reservasi.mitra.utils.UtilFunctions.loge
 
 /**
  * Created by rivaldy on 21/09/21
@@ -31,13 +30,17 @@ class AddSessionAdapter(
     fun getSessions() = listData
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddSessionViewHolder {
-        val binding = RowItemAddFacilitySessionBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = RowItemAddFacilitySessionBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
         return AddSessionViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: AddSessionViewHolder, position: Int) {
-        val item = listData[position]
-        holder.bindItem(item)
+        holder.setIsRecyclable(false)
+        holder.bindItem(listData[position])
     }
 
     override fun getItemCount() = listData.size
@@ -49,18 +52,20 @@ class AddSessionAdapter(
             item.hari?.let { days.addAll(it) }
             binding.apply {
                 initTimePicker(binding)
-                val session = root.context.getString(R.string.session_, (layoutPosition + 1).toString())
+                val session =
+                    root.context.getString(R.string.session_, (layoutPosition + 1).toString())
                 hintTV.text = session
                 priceET.setTextEditable(UtilFunctions.isStringNullZero(item.harga))
                 quotaET.setTextEditable(UtilFunctions.isStringNullZero(item.kuota))
                 timeStartET.setTextEditable(UtilFunctions.isStringNullZero(item.jamMulai))
                 timeEndET.setTextEditable(UtilFunctions.isStringNullZero(item.jamAkhir))
 
-                val textWatcherEstimation = UtilFunctions.customWatcherReturn(object : UtilFunctions.ITextWatcher {
-                    override fun onTextChanged(charSequence: CharSequence) {
-                        updateFacility(binding, item, adapterPosition)
-                    }
-                })
+                val textWatcherEstimation =
+                    UtilFunctions.customWatcherReturn(object : UtilFunctions.ITextWatcher {
+                        override fun onTextChanged(charSequence: CharSequence) {
+                            updateFacility(binding, item, adapterPosition)
+                        }
+                    })
 
                 priceET.addTextChangedListener(textWatcherEstimation)
                 quotaET.addTextChangedListener(textWatcherEstimation)
@@ -153,7 +158,11 @@ class AddSessionAdapter(
         }
     }
 
-    private fun updateFacility(binding: RowItemAddFacilitySessionBinding, item: AddFacilitySessionData, adapterPosition: Int) {
+    private fun updateFacility(
+        binding: RowItemAddFacilitySessionBinding,
+        item: AddFacilitySessionData,
+        adapterPosition: Int
+    ) {
         binding.apply {
             val price = UtilFunctions.isStringNull(UtilFunctions.editTextNumberReplace(priceET))
             val quota = UtilFunctions.isStringNull(quotaET.text.toString())
@@ -171,18 +180,22 @@ class AddSessionAdapter(
     private fun initTimePicker(binding: RowItemAddFacilitySessionBinding) {
         binding.apply {
             timeStartET.setOnClickListener {
-                UtilFunctions.showTimePickerEnable(binding.root.context, object : UtilFunctions.IResultTimePicker {
-                    override fun onTimePicker(time: String?) {
-                        timeStartET.setTextEditable(time ?: "")
-                    }
-                })
+                UtilFunctions.showTimePickerEnable(
+                    binding.root.context,
+                    object : UtilFunctions.IResultTimePicker {
+                        override fun onTimePicker(time: String?) {
+                            timeStartET.setTextEditable(time ?: "")
+                        }
+                    })
             }
             timeEndET.setOnClickListener {
-                UtilFunctions.showTimePickerEnable(binding.root.context, object : UtilFunctions.IResultTimePicker {
-                    override fun onTimePicker(time: String?) {
-                        timeEndET.setTextEditable(time ?: "")
-                    }
-                })
+                UtilFunctions.showTimePickerEnable(
+                    binding.root.context,
+                    object : UtilFunctions.IResultTimePicker {
+                        override fun onTimePicker(time: String?) {
+                            timeEndET.setTextEditable(time ?: "")
+                        }
+                    })
             }
         }
     }

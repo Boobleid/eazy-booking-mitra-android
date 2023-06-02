@@ -370,7 +370,7 @@
                             android:paddingStart="@dimen/space_12"
                             android:paddingBottom="@dimen/space_6"
                             android:textColor="@color/colorGreyDarkHigh"
-                            android:textSize="@dimen/size_14"
+                            android:textSize="@dimen/size_12"
                             tools:text="@tools:sample/first_names" />
                     </LinearLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>

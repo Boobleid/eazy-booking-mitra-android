@@ -82,7 +82,7 @@ class WithdrawFragment : BaseFragment<FragmentWithdrawBinding>(FragmentWithdrawB
     private fun showViewWithdraw(response: DefaultApiResponse) {
         showLoading(false)
         requireContext().myToast(response.message.toString())
-        if (response.status == true) mainListener.changeFragment()
+        if (response.status == true) mainListener.changeFragment(WithdrawFragment().tag.toString())
     }
 
     private fun showViewUser(response: UserProfileResponse) {

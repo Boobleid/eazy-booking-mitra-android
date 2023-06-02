@@ -6,5 +6,5 @@ package com.booble.reservasi.mitra.ui
  **/
 
 interface MainListener  {
-    fun changeFragment()
+    fun changeFragment(tag: String)
 }
