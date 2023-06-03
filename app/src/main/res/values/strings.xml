@@ -296,6 +296,8 @@
     <string name="str_exit">Keluar</string>
     <string name="mapreq_title">Akses Lokasi</string>
     <string name="mapreq_desc">Aplikasi tidak dapat mengakses lokasi anda, aktifkan lokasi ?</string>
+    <string name="change_display_status_title">Ubah Status</string>
+    <string name="change_display_status_desc">Apakah anda yakin ingin mengubah status?</string>
     <string name="pick_lat">Pick Latitude</string>
     <string name="pick_lng">Pick Longitude</string>
     <string name="pick_location">Pick Lokasi</string>

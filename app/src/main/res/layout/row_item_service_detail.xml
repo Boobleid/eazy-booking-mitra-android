@@ -121,6 +121,7 @@
             app:isw_icon_right="@drawable/ic_visibility"
             app:isw_thumb_color_left="@color/colorDisable"
             app:isw_inactive_tint_icon_left="@color/colorDisable"
+            app:isw_icon_size="@dimen/dimen_8"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 

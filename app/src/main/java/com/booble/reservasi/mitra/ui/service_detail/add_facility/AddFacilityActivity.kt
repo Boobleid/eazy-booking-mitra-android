@@ -36,7 +36,6 @@ import com.booble.reservasi.mitra.utils.UtilExtensions.myToast
 import com.booble.reservasi.mitra.utils.UtilExtensions.setTextEditable
 import com.booble.reservasi.mitra.utils.UtilFunctions
 import com.booble.reservasi.mitra.utils.UtilFunctions.getTimestamp
-import com.booble.reservasi.mitra.utils.UtilFunctions.loge
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
@@ -182,7 +181,7 @@ class AddFacilityActivity : BaseActivity<ActivityAddFacilityBinding>() {
 
     private fun saveFacility() {
         if (!isValidate(binding.nameET)) return
-        if (!isValidate(binding.guestMaxET)) return
+        if (!isValidate(binding.roomDescET)) return
 
         val sessionList = addSessionAdapter.getSessions()
         if (sessionList.size == 0) {
@@ -205,6 +204,8 @@ class AddFacilityActivity : BaseActivity<ActivityAddFacilityBinding>() {
         showLoading(false)
         myToast(response.message.toString())
         if (response.status == true) {
+            val resultIntent = Intent()
+            setResult(RESULT_OK, resultIntent)
             finish()
         }
     }

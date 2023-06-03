@@ -1,6 +1,5 @@
 package com.booble.reservasi.mitra.ui.service_detail
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -16,7 +15,6 @@ import com.squareup.picasso.Picasso
  **/
 
 class ServiceDetailAdapter(
-    private val context : Context,
     private val detailListener: (RoomFacilityData) -> Unit,
     private val changeListener: (RoomFacilityData) -> Unit,
     private val switchListener: (RoomFacilityData, String) -> Unit,
@@ -25,13 +23,14 @@ class ServiceDetailAdapter(
     private var data = ArrayList<RoomFacilityData>()
 
     fun setData(item: List<RoomFacilityData>) {
-        if (item.isNullOrEmpty()) return
-        val oldPos = data.size
+        if (item.isEmpty()) return
+        data.clear()
         data.addAll(item)
-        notifyItemRangeInserted(oldPos, data.size)
+        notifyDataSetChanged()
     }
 
-    inner class ViewHolder(private val binding: RowItemServiceDetailBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(private val binding: RowItemServiceDetailBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bindItem(item: RoomFacilityData) {
             binding.apply {
                 nameTV.text = item.nama
@@ -43,15 +42,15 @@ class ServiceDetailAdapter(
                 detailTV.setOnClickListener { detailListener(item) }
                 changeTV.setOnClickListener { changeListener(item) }
 
-                if (item.display == 1) iconSwitch.checked = IconSwitch.Checked.RIGHT
-                else iconSwitch.checked = IconSwitch.Checked.LEFT
+                if (item.display == 1) {
+                    iconSwitch.checked = IconSwitch.Checked.RIGHT
+                } else iconSwitch.checked = IconSwitch.Checked.LEFT
 
                 iconSwitch.setCheckedChangeListener {
                     if (it == IconSwitch.Checked.RIGHT) {
                         item.display = 1
                         switchListener(item, "1")
-                    }
-                    else {
+                    } else {
                         item.display = 0
                         switchListener(item, "0")
                     }
@@ -61,7 +60,8 @@ class ServiceDetailAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = RowItemServiceDetailBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            RowItemServiceDetailBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 

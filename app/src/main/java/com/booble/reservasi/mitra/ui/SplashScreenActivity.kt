@@ -5,13 +5,13 @@ import android.content.Intent
 import android.os.Handler
 import android.os.Looper
 import androidx.activity.viewModels
+import com.booble.reservasi.mitra.BuildConfig.REMOTE_KEY
 import com.booble.reservasi.mitra.MyApp.Companion.TYPE
 import com.booble.reservasi.mitra.base.BaseActivity
 import com.booble.reservasi.mitra.data.network.DataResource
 import com.booble.reservasi.mitra.databinding.ActivitySplashScreenBinding
 import com.booble.reservasi.mitra.ui.login.LoginActivity
 import com.booble.reservasi.mitra.utils.UtilExtensions.openActivity
-import com.booble.reservasi.mitra.utils.UtilFunctions.loge
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.ktx.remoteConfig
 import dagger.hilt.android.AndroidEntryPoint
@@ -36,7 +36,7 @@ class SplashScreenActivity : BaseActivity<ActivitySplashScreenBinding>() {
         remoteConfig.fetchAndActivate()
             .addOnCompleteListener(this) { task ->
                 if (task.isComplete) {
-                    val url = remoteConfig.getString("url_api_mitra")
+                    val url = remoteConfig.getString(REMOTE_KEY)
                     if (url.isNotEmpty()) viewModel.setUrlAPI(url)
                 }
                 checkToken()
