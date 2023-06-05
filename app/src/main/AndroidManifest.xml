@@ -91,9 +91,6 @@
             android:name="com.booble.reservasi.mitra.ui.scanner.ScannerActivity"
             android:exported="true" />
         <activity
-            android:name="com.booble.reservasi.mitra.back_up.ui.user_order.InfoUserOrderActivity"
-            android:exported="true" />
-        <activity
             android:name="com.booble.reservasi.mitra.back_up.ui.home.check_item.CheckItemActivity"
             android:exported="true" />
         <activity

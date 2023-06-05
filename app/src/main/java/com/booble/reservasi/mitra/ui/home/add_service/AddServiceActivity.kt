@@ -8,9 +8,6 @@ import android.os.Bundle
 import android.widget.AdapterView
 import androidx.activity.viewModels
 import com.booble.reservasi.mitra.R
-import com.booble.reservasi.mitra.ui.finis_message.FinishMessageDialogFragment
-import com.booble.reservasi.mitra.ui.finis_message.FinishMessageDialogListener
-import com.booble.reservasi.mitra.back_up.ui.home.detail_order.DetailOrderActivity
 import com.booble.reservasi.mitra.base.BaseActivity
 import com.booble.reservasi.mitra.data.model.api.master.category.CategoryResponse
 import com.booble.reservasi.mitra.data.model.api.master.city.CityResponse
@@ -21,6 +18,8 @@ import com.booble.reservasi.mitra.data.model.offline.FinishMessageData
 import com.booble.reservasi.mitra.data.network.DataResource
 import com.booble.reservasi.mitra.databinding.ActivityAddServiceBinding
 import com.booble.reservasi.mitra.ui.MasterViewModel
+import com.booble.reservasi.mitra.ui.finis_message.FinishMessageDialogFragment
+import com.booble.reservasi.mitra.ui.finis_message.FinishMessageDialogListener
 import com.booble.reservasi.mitra.ui.map.MapsActivity
 import com.booble.reservasi.mitra.ui.service_detail.ServiceDetailActivity
 import com.booble.reservasi.mitra.utils.UtilConstants.INT_SIZE_500_KB
@@ -82,29 +81,29 @@ class AddServiceActivity : BaseActivity<ActivityAddServiceBinding>(), FinishMess
         masterViewModel.getCityApiCall()
         masterViewModel.getServiceCategoryApiCall()
 
-        masterViewModel.getCity.observe(this, {
+        masterViewModel.getCity.observe(this) {
             when (it) {
                 is DataResource.Loading -> showLoading(true)
                 is DataResource.Success -> showViewCity(it.value)
                 is DataResource.Failure -> showFailure(it)
             }
-        })
+        }
 
-        masterViewModel.getServiceCategory.observe(this, {
+        masterViewModel.getServiceCategory.observe(this) {
             when (it) {
                 is DataResource.Loading -> showLoading(true)
                 is DataResource.Success -> showViewCategory(it.value)
                 is DataResource.Failure -> showFailure(it)
             }
-        })
+        }
 
-        addServiceViewModel.addService.observe(this, {
+        addServiceViewModel.addService.observe(this) {
             when (it) {
                 is DataResource.Loading -> showLoading(true)
                 is DataResource.Success -> showViewAddService(it.value)
                 is DataResource.Failure -> showFailure(it)
             }
-        })
+        }
     }
 
     private fun initClick() {
@@ -181,7 +180,8 @@ class AddServiceActivity : BaseActivity<ActivityAddServiceBinding>(), FinishMess
                     binding.imageStatusTV.text = strName
                 } else if (requestCode == REQUEST_PICK_MAP_CODE) {
                     if (data != null) {
-                        val latLng = data.getParcelableExtra<LatLng>(MapsActivity.EXTRA_LAT_LONG) ?: return
+                        val latLng =
+                            data.getParcelableExtra<LatLng>(MapsActivity.EXTRA_LAT_LONG) ?: return
                         extraServiceData?.lat = latLng.latitude.toString()
                         extraServiceData?.lng = latLng.longitude.toString()
                         loge("checkLocation3 $latLng")
@@ -202,9 +202,10 @@ class AddServiceActivity : BaseActivity<ActivityAddServiceBinding>(), FinishMess
         }
         val adapterSpinner = setSpinner(this, listData)
         binding.cityACTV.setAdapter(adapterSpinner)
-        binding.cityACTV.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
-            idCity = response.cityData?.get(position)?.id.toString()
-        }
+        binding.cityACTV.onItemClickListener =
+            AdapterView.OnItemClickListener { _, _, position, _ ->
+                idCity = response.cityData?.get(position)?.id.toString()
+            }
     }
 
     private fun showViewCategory(response: CategoryResponse) {
@@ -216,9 +217,10 @@ class AddServiceActivity : BaseActivity<ActivityAddServiceBinding>(), FinishMess
         }
         val adapterSpinner = setSpinner(this, listData)
         binding.categoryACTV.setAdapter(adapterSpinner)
-        binding.categoryACTV.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
-            idCategory = response.categoryData?.get(position)?.id.toString()
-        }
+        binding.categoryACTV.onItemClickListener =
+            AdapterView.OnItemClickListener { _, _, position, _ ->
+                idCategory = response.categoryData?.get(position)?.id.toString()
+            }
     }
 
     private fun showViewAddService(response: AddServiceResponse) {
@@ -230,7 +232,7 @@ class AddServiceActivity : BaseActivity<ActivityAddServiceBinding>(), FinishMess
             response.status, response.message, "", "",
             (if (response.status == true) getString(R.string.saved_service) else getString(R.string.failed_service))
         )
-        bundle.putString(FinishMessageDialogFragment.EXTRA_FINISH_MESSAGE, DetailOrderActivity.TAG)
+        bundle.putString(FinishMessageDialogFragment.EXTRA_FINISH_MESSAGE, TAG)
         bundle.putParcelable(FinishMessageDialogFragment.EXTRA_FINISH_MESSAGE, finishMessageData)
         finishDialogFragment.arguments = bundle
         finishDialogFragment.show(supportFragmentManager, finishDialogFragment.tag)
@@ -238,5 +240,6 @@ class AddServiceActivity : BaseActivity<ActivityAddServiceBinding>(), FinishMess
 
     companion object {
         const val REQUEST_PICK_MAP_CODE = 1001
+        val TAG: String = AddServiceActivity::class.java.simpleName
     }
 }
