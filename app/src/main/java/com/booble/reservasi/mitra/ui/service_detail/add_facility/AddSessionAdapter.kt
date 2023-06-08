@@ -27,6 +27,11 @@ class AddSessionAdapter(
         notifyDataSetChanged()
     }
 
+    fun addSessionItem(item: AddFacilitySessionData) {
+        this.listData.add(item)
+        notifyItemInserted(listData.size - 1)
+    }
+
     fun getSessions() = listData
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddSessionViewHolder {

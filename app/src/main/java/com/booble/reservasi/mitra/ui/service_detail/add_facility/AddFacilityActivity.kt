@@ -115,7 +115,8 @@ class AddFacilityActivity : BaseActivity<ActivityAddFacilityBinding>() {
                 hari = mutableListOf()
             )
             facilitySessions.add(session)
-            checkedSessions(facilitySessions)
+            addSessionAdapter.addSessionItem(session)
+//            checkedSessions(facilitySessions)
             myToast(getString(R.string.session_add_, intSession.toString()))
         }
 
