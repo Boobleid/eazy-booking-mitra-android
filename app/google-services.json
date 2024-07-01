@@ -1,41 +1,41 @@
 {
   "project_info": {
-    "project_number": "207404949482",
-    "project_id": "booblereservasi",
-    "storage_bucket": "booblereservasi.appspot.com"
+    "project_number": "56119157558",
+    "project_id": "eazybooking-ee4d0",
+    "storage_bucket": "eazybooking-ee4d0.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:207404949482:android:47778f08359052ad5b1c93",
+        "mobilesdk_app_id": "1:56119157558:android:2f6737c54f99659c400997",
         "android_client_info": {
-          "package_name": "com.booble.reservasi"
+          "package_name": "com.booble.eazybooking"
         }
       },
       "oauth_client": [
         {
-          "client_id": "207404949482-jhsc8l589b5dcpji1i8h21tfmnr1ouqb.apps.googleusercontent.com",
+          "client_id": "56119157558-le0vodpfctoilu0ik3ps7ti30tkct3sb.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.booble.reservasi",
+            "package_name": "com.booble.eazybooking",
             "certificate_hash": "59201d3af3fbb92b996962cd2363b59ee20d2723"
           }
         },
         {
-          "client_id": "207404949482-f1epdba8dm3vrs59b83eo673jn8n1k1j.apps.googleusercontent.com",
+          "client_id": "56119157558-1lbmnnjj7lmjcqk0jhk2i0pb35m11uq2.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCVPpxGa2CE6pYCJFtJDTfrj0R6xz-bDOE"
+          "current_key": "AIzaSyDZ-ogFTkrXkddZviHkgURNawVkVVwpHbc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "207404949482-f1epdba8dm3vrs59b83eo673jn8n1k1j.apps.googleusercontent.com",
+              "client_id": "56119157558-1lbmnnjj7lmjcqk0jhk2i0pb35m11uq2.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
@@ -44,35 +44,35 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:207404949482:android:e6af34511f09b64b5b1c93",
+        "mobilesdk_app_id": "1:56119157558:android:0a802b725ee93d0d400997",
         "android_client_info": {
-          "package_name": "com.booble.reservasi.mitra"
+          "package_name": "com.booble.eazybooking.mitra"
         }
       },
       "oauth_client": [
         {
-          "client_id": "207404949482-l3s74lv067dvtrqo7uoa7ksn13j67kem.apps.googleusercontent.com",
+          "client_id": "56119157558-6ghd8ig5hje9v6laq492jj093717vo4o.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.booble.reservasi.mitra",
+            "package_name": "com.booble.eazybooking.mitra",
             "certificate_hash": "59201d3af3fbb92b996962cd2363b59ee20d2723"
           }
         },
         {
-          "client_id": "207404949482-f1epdba8dm3vrs59b83eo673jn8n1k1j.apps.googleusercontent.com",
+          "client_id": "56119157558-1lbmnnjj7lmjcqk0jhk2i0pb35m11uq2.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCVPpxGa2CE6pYCJFtJDTfrj0R6xz-bDOE"
+          "current_key": "AIzaSyDZ-ogFTkrXkddZviHkgURNawVkVVwpHbc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "207404949482-f1epdba8dm3vrs59b83eo673jn8n1k1j.apps.googleusercontent.com",
+              "client_id": "56119157558-1lbmnnjj7lmjcqk0jhk2i0pb35m11uq2.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

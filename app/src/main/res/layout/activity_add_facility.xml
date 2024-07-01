@@ -140,6 +140,76 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
+                android:id="@+id/pricePerYearTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                android:text="@string/harga_tahunan"
+                android:textSize="@dimen/size_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/facilityDescTIL"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/pricePerYearTIL"
+                style="@style/CustomTextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:endIconMode="clear_text"
+                app:layout_constraintEnd_toEndOf="@+id/nameTV"
+                app:layout_constraintStart_toStartOf="@+id/nameTV"
+                app:layout_constraintTop_toBottomOf="@+id/pricePerYearTV">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/pricePerYearET"
+                    style="@style/CustomWhiteEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/space_16"
+                    android:gravity="center_vertical"
+                    android:hint="@string/harga_tahunan"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/pricePerMonthTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                android:text="@string/harga_bulanan"
+                android:textSize="@dimen/size_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pricePerYearTIL"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/pricePerMonthTIL"
+                style="@style/CustomTextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:endIconMode="clear_text"
+                app:layout_constraintEnd_toEndOf="@+id/nameTV"
+                app:layout_constraintStart_toStartOf="@+id/nameTV"
+                app:layout_constraintTop_toBottomOf="@+id/pricePerMonthTV">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/pricePerMonthET"
+                    style="@style/CustomWhiteEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/space_16"
+                    android:gravity="center_vertical"
+                    android:hint="@string/harga_bulanan"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
                 android:id="@+id/sessionSettingTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -153,7 +223,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/facilityDescTIL" />
+                app:layout_constraintTop_toBottomOf="@+id/pricePerMonthTIL" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/addSessionMB"
@@ -173,10 +243,10 @@
                 app:iconGravity="textStart"
                 app:iconPadding="@dimen/space_8"
                 app:iconTint="@color/colorWhite"
-                app:layout_constraintEnd_toEndOf="@+id/facilityDescTIL"
+                app:layout_constraintEnd_toEndOf="@+id/pricePerMonthTIL"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/facilityDescTIL"
+                app:layout_constraintTop_toBottomOf="@+id/pricePerMonthTIL"
                 app:rippleColor="@color/colorWhite" />
 
             <androidx.recyclerview.widget.RecyclerView

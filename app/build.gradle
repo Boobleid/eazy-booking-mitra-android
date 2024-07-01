@@ -14,14 +14,14 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.booble.reservasi.mitra"
+        applicationId "com.booble.eazybooking.mitra"
         minSdkVersion 23
         targetSdkVersion 33
         versionCode 3
         versionName "1.0.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField("String", "BASE_URL", '"http://128.199.195.222:5100/"')
-        buildConfigField("String", "REMOTE_KEY", '"url_api_mitra"')
+        buildConfigField("String", "REMOTE_KEY", '"url_api_easy_booking_mitra"')
     }
 
     buildTypes {
@@ -29,7 +29,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField("String", "BASE_URL", '"http://128.199.195.222:5100/"')
-            buildConfigField("String", "REMOTE_KEY", '"url_api_mitra"')
+            buildConfigField("String", "REMOTE_KEY", '"url_api_easy_booking_mitra"')
         }
     }
     compileOptions {

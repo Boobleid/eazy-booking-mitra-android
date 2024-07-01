@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.booble.reservasi.mitra">
+    package="com.booble.eazybooking.mitra">
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -15,7 +15,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:name="com.booble.reservasi.mitra.MyApp"
+        android:name="com.booble.eazybooking.mitra.MyApp"
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
@@ -25,7 +25,7 @@
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,UnusedAttribute">
         <activity
-            android:name=".ui.booking_cancel.detail.BookingCancelDetailActivity"
+            android:name="com.booble.eazybooking.mitra.ui.booking_cancel.detail.BookingCancelDetailActivity"
             android:exported="false" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -40,73 +40,73 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name="com.booble.reservasi.mitra.ui.map.MapsActivity"
+            android:name="com.booble.eazybooking.mitra.ui.map.MapsActivity"
             android:exported="true"
             android:label="@string/title_activity_maps" />
         <activity
-            android:name="com.booble.reservasi.mitra.ui.help.contact.ContactActivity"
+            android:name="com.booble.eazybooking.mitra.ui.help.contact.ContactActivity"
             android:exported="true" />
         <activity
-            android:name="com.booble.reservasi.mitra.ui.help.HelpDetailActivity"
+            android:name="com.booble.eazybooking.mitra.ui.help.HelpDetailActivity"
             android:exported="true" />
         <activity
-            android:name="com.booble.reservasi.mitra.ui.help.HelpActivity"
+            android:name="com.booble.eazybooking.mitra.ui.help.HelpActivity"
             android:exported="true" />
         <activity
-            android:name="com.booble.reservasi.mitra.ui.user_member.AddMemberServiceActivity"
+            android:name="com.booble.eazybooking.mitra.ui.user_member.AddMemberServiceActivity"
             android:exported="true" />
         <activity
-            android:name="com.booble.reservasi.mitra.ui.service_detail.detail_facility.FacilityDetailActivity"
+            android:name="com.booble.eazybooking.mitra.ui.service_detail.detail_facility.FacilityDetailActivity"
             android:exported="true" />
         <activity
-            android:name="com.booble.reservasi.mitra.ui.service_detail.detail_room.RoomDetailActivity"
+            android:name="com.booble.eazybooking.mitra.ui.service_detail.detail_room.RoomDetailActivity"
             android:exported="true" />
         <activity
-            android:name="com.booble.reservasi.mitra.ui.service_detail.add_facility.AddFacilityActivity"
+            android:name="com.booble.eazybooking.mitra.ui.service_detail.add_facility.AddFacilityActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name="com.booble.reservasi.mitra.ui.service_detail.add_room.AddRoomActivity"
+            android:name="com.booble.eazybooking.mitra.ui.service_detail.add_room.AddRoomActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name="com.booble.reservasi.mitra.ui.service_detail.ServiceDetailActivity"
+            android:name="com.booble.eazybooking.mitra.ui.service_detail.ServiceDetailActivity"
             android:exported="true" />
         <activity
-            android:name="com.booble.reservasi.mitra.ui.home.add_service.AddServiceActivity"
+            android:name="com.booble.eazybooking.mitra.ui.home.add_service.AddServiceActivity"
             android:exported="true" />
         <activity
-            android:name="com.booble.reservasi.mitra.back_up.ui.chat.ChatActivity"
+            android:name="com.booble.eazybooking.mitra.back_up.ui.chat.ChatActivity"
             android:exported="true" />
         <activity
-            android:name="com.booble.reservasi.mitra.ui.login.LoginActivity"
+            android:name="com.booble.eazybooking.mitra.ui.login.LoginActivity"
             android:exported="true" />
         <activity
-            android:name="com.booble.reservasi.mitra.ui.booking_history.detail.BookingHistoryDetailActivity"
+            android:name="com.booble.eazybooking.mitra.ui.booking_history.detail.BookingHistoryDetailActivity"
             android:exported="true" />
         <activity
-            android:name="com.booble.reservasi.mitra.ui.profile.UserSettingActivity"
+            android:name="com.booble.eazybooking.mitra.ui.profile.UserSettingActivity"
             android:exported="true" />
         <activity
-            android:name="com.booble.reservasi.mitra.ui.scanner.ScannerActivity"
+            android:name="com.booble.eazybooking.mitra.ui.scanner.ScannerActivity"
             android:exported="true" />
         <activity
-            android:name="com.booble.reservasi.mitra.back_up.ui.home.check_item.CheckItemActivity"
+            android:name="com.booble.eazybooking.mitra.back_up.ui.home.check_item.CheckItemActivity"
             android:exported="true" />
         <activity
-            android:name="com.booble.reservasi.mitra.back_up.ui.home.detail_order.DetailOrderActivity"
+            android:name="com.booble.eazybooking.mitra.back_up.ui.home.detail_order.DetailOrderActivity"
             android:exported="true" />
         <activity
-            android:name="com.booble.reservasi.mitra.ui.forgot_password.ForgotPasswordActivity"
+            android:name="com.booble.eazybooking.mitra.ui.forgot_password.ForgotPasswordActivity"
             android:exported="true" />
         <activity
-            android:name="com.booble.reservasi.mitra.ui.MainActivity"
+            android:name="com.booble.eazybooking.mitra.ui.MainActivity"
             android:exported="true"
             android:label="@string/title_activity_main"
             android:theme="@style/Theme.MitraMillennialProperty.NoActionBar"
             android:windowSoftInputMode="adjustResize|adjustNothing" />
         <activity
-            android:name="com.booble.reservasi.mitra.ui.SplashScreenActivity"
+            android:name="com.booble.eazybooking.mitra.ui.SplashScreenActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -117,7 +117,7 @@
         </activity>
 
         <meta-data
-            android:name="com.booble.reservasi.mitra.utils.glide.UnsafeOkHttpClient"
+            android:name="com.booble.eazybooking.mitra.utils.glide.UnsafeOkHttpClient"
             android:value="com.booble.mitra.millpro.utils.glide.MyGlideModule" />
     </application>
 

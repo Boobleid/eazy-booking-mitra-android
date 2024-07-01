@@ -12,7 +12,7 @@
         android:layout_width="@dimen/space_180"
         android:layout_height="@dimen/space_100"
         android:contentDescription="@string/todo"
-        android:src="@drawable/logo"
+        android:src="@drawable/logo_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

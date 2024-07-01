@@ -1,4 +1,4 @@
-package com.booble.reservasi.mitra
+package com.booble.eazybooking.mitra
 
 import org.junit.Test
 
