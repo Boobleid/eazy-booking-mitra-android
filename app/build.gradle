@@ -17,8 +17,8 @@ android {
         applicationId "com.booble.eazybooking.mitra"
         minSdkVersion 23
         targetSdkVersion 33
-        versionCode 3
-        versionName "1.0.2"
+        versionCode 1
+        versionName "1.0.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField("String", "BASE_URL", '"http://128.199.195.222:5100/"')
         buildConfigField("String", "REMOTE_KEY", '"url_api_easy_booking_mitra"')

@@ -19,7 +19,7 @@
             android:layout_width="@dimen/space_60"
             android:layout_height="@dimen/space_60"
             android:contentDescription="@string/todo"
-            android:src="@drawable/reson_icon"
+            android:src="@drawable/app_icon"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
